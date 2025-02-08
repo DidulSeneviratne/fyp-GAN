@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">UI Generator from Sketch</h1>
+        
+        <form id="uploadForm">
+            <label for="sketch">Upload Sketch Image:</label>
+            <input type="file" id="sketch" name="sketch" accept="image/*" multiple required><br><br>
+            
+            <label for="region">Target Audience Region:</label>
+            <select id="region" name="region" required>
+                <option value="South Asia">South Asia</option>
+                <option value="Southeast Asia">Southeast Asia</option>
+                <option value="East Asia">East Asia</option>
+                <option value="Middle East">Middle East</option>
+                <option value="Africa">Africa</option>
+                <option value="Western (Europe + North America)">Western (Europe + North America)</option>
+                <option value="Oceania">Oceania</option>
+                <option value="South America">South America</option>
+                <option value="All">All</option>
+            </select><br><br>
+            
+            <label for="age">Age Group:</label>
+            <select id="age" name="age" required>
+                <option value="Child">Child</option>
+                <option value="Teen">Teen</option>
+                <option value="Adult">Adult</option>
+                <option value="Elder">Elder</option>
+                <option value="All">All</option>
+            </select><br><br>
+            
+            <label for="device">Target Device:</label>
+            <select id="device" name="device" required>
+                <option value="Mobile">Mobile</option>
+                <option value="Desktop">Desktop</option>
+            </select><br><br>
+            
+            <label for="product">Software Product Type:</label>
+            <select id="product" name="product" required>
+                <option value="Finance">Finance</option>
+                <option value="Tech">Tech</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Sports">Sports</option>
+                <option value="Travel">Travel</option>
+                <option value="Masculinity">Masculinity</option>
+                <option value="Femininity">Femininity</option>
+                <option value="E-Commerce">E-Commerce</option>
+                <option value="Neutral">Neutral</option>
+            </select><br><br>
+            
+            <button type="submit" id="submission">Generate UI's</button>
+        </form>
+
+        <div id="loadingIndicator" style="display:none;"></div>
+        
+        <div id="result">
+            <h2>Generated UI's Preview:</h2>
+            <div id="imageContainer"></div>
+            <!-- <label> Generated UI's will appear here </label> -->
+            <img id="generatedImage" src="" alt="Generated UI will appear here">
+            <br><br>
+            <button id="downloadBtn" style="display:none;">Download UI's </button>
+            <!--<a href="../backend/outputs/generated_ui.png" download="my-file.png">Download UI</a>-->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
+</body>
+</html>
+ 
+<!--http://localhost:8001/outputs/generated_ui0.png-->

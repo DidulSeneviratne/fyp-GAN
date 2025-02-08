@@ -1,0 +1,406 @@
+Region,Age,Product,Font Face,Font Size
+East Asia,Child,Finance,Verdana,16
+East Asia,Child,Tech,Arial,16
+East Asia,Child,Entertainment,Roboto,16
+East Asia,Child,Sports,Arial,16
+East Asia,Child,Travel,Arial,16
+East Asia,Child,Masculinity,Times New Roman,16
+East Asia,Child,Femininity,Arial,16
+East Asia,Child,E-Commerce,Georgia,16
+East Asia,Child,Neutral,Roboto,16
+East Asia,Teen,Finance,Verdana,14
+East Asia,Teen,Tech,Arial,14
+East Asia,Teen,Entertainment,Roboto,14
+East Asia,Teen,Sports,Arial,14
+East Asia,Teen,Travel,Arial,14
+East Asia,Teen,Masculinity,Times New Roman,14
+East Asia,Teen,Femininity,Arial,14
+East Asia,Teen,E-Commerce,Georgia,14
+East Asia,Teen,Neutral,Roboto,14
+East Asia,Adult,Finance,Verdana,12
+East Asia,Adult,Tech,Arial,12
+East Asia,Adult,Entertainment,Roboto,12
+East Asia,Adult,Sports,Arial,12
+East Asia,Adult,Travel,Arial,12
+East Asia,Adult,Masculinity,Times New Roman,12
+East Asia,Adult,Femininity,Arial,12
+East Asia,Adult,E-Commerce,Georgia,12
+East Asia,Adult,Neutral,Roboto,12
+East Asia,Elder,Finance,Verdana,18
+East Asia,Elder,Tech,Arial,18
+East Asia,Elder,Entertainment,Roboto,18
+East Asia,Elder,Sports,Arial,18
+East Asia,Elder,Travel,Arial,18
+East Asia,Elder,Masculinity,Times New Roman,18
+East Asia,Elder,Femininity,Arial,18
+East Asia,Elder,E-Commerce,Georgia,18
+East Asia,Elder,Neutral,Roboto,18
+Southeast Asia,Child,Finance,Comic Sans,16
+Southeast Asia,Child,Tech,Roboto,16
+Southeast Asia,Child,Entertainment,Courier New,16
+Southeast Asia,Child,Sports,Comic Sans,16
+Southeast Asia,Child,Travel,Comic Sans,16
+Southeast Asia,Child,Masculinity,Arial,16
+Southeast Asia,Child,Femininity,Verdana,16
+Southeast Asia,Child,E-Commerce,Roboto,16
+Southeast Asia,Child,Neutral,Roboto,16
+Southeast Asia,Teen,Finance,Comic Sans,14
+Southeast Asia,Teen,Tech,Roboto,14
+Southeast Asia,Teen,Entertainment,Courier New,14
+Southeast Asia,Teen,Sports,Comic Sans,14
+Southeast Asia,Teen,Travel,Comic Sans,14
+Southeast Asia,Teen,Masculinity,Arial,14
+Southeast Asia,Teen,Femininity,Verdana,14
+Southeast Asia,Teen,E-Commerce,Roboto,14
+Southeast Asia,Teen,Neutral,Roboto,14
+Southeast Asia,Adult,Finance,Comic Sans,12
+Southeast Asia,Adult,Tech,Roboto,12
+Southeast Asia,Adult,Entertainment,Courier New,12
+Southeast Asia,Adult,Sports,Comic Sans,12
+Southeast Asia,Adult,Travel,Comic Sans,12
+Southeast Asia,Adult,Masculinity,Arial,12
+Southeast Asia,Adult,Femininity,Verdana,12
+Southeast Asia,Adult,E-Commerce,Roboto,12
+Southeast Asia,Adult,Neutral,Roboto,12
+Southeast Asia,Elder,Finance,Comic Sans,18
+Southeast Asia,Elder,Tech,Roboto,18
+Southeast Asia,Elder,Entertainment,Courier New,18
+Southeast Asia,Elder,Sports,Comic Sans,18
+Southeast Asia,Elder,Travel,Comic Sans,18
+Southeast Asia,Elder,Masculinity,Arial,18
+Southeast Asia,Elder,Femininity,Verdana,18
+Southeast Asia,Elder,E-Commerce,Roboto,18
+Southeast Asia,Elder,Neutral,Roboto,18
+South Asia,Child,Finance,Roboto,16
+South Asia,Child,Tech,Georgia,16
+South Asia,Child,Entertainment,Roboto,16
+South Asia,Child,Sports,Verdana,16
+South Asia,Child,Travel,Verdana,16
+South Asia,Child,Masculinity,Courier New,16
+South Asia,Child,Femininity,Georgia,16
+South Asia,Child,E-Commerce,Arial,16
+South Asia,Child,Neutral,Arial,16
+South Asia,Teen,Finance,Roboto,14
+South Asia,Teen,Tech,Georgia,14
+South Asia,Teen,Entertainment,Roboto,14
+South Asia,Teen,Sports,Verdana,14
+South Asia,Teen,Travel,Verdana,14
+South Asia,Teen,Masculinity,Courier New,14
+South Asia,Teen,Femininity,Georgia,14
+South Asia,Teen,E-Commerce,Arial,14
+South Asia,Teen,Neutral,Arial,14
+South Asia,Adult,Finance,Roboto,12
+South Asia,Adult,Tech,Georgia,12
+South Asia,Adult,Entertainment,Roboto,12
+South Asia,Adult,Sports,Verdana,12
+South Asia,Adult,Travel,Verdana,12
+South Asia,Adult,Masculinity,Courier New,12
+South Asia,Adult,Femininity,Georgia,12
+South Asia,Adult,E-Commerce,Arial,12
+South Asia,Adult,Neutral,Arial,12
+South Asia,Elder,Finance,Roboto,18
+South Asia,Elder,Tech,Georgia,18
+South Asia,Elder,Entertainment,Roboto,18
+South Asia,Elder,Sports,Verdana,18
+South Asia,Elder,Travel,Verdana,18
+South Asia,Elder,Masculinity,Courier New,18
+South Asia,Elder,Femininity,Georgia,18
+South Asia,Elder,E-Commerce,Arial,18
+South Asia,Elder,Neutral,Arial,18
+Middle East,Child,Finance,Comic Sans,16
+Middle East,Child,Tech,Verdana,16
+Middle East,Child,Entertainment,Comic Sans,16
+Middle East,Child,Sports,Comic Sans,16
+Middle East,Child,Travel,Roboto,16
+Middle East,Child,Masculinity,Georgia,16
+Middle East,Child,Femininity,Verdana,16
+Middle East,Child,E-Commerce,Arial,16
+Middle East,Child,Neutral,Roboto,16
+Middle East,Teen,Finance,Comic Sans,14
+Middle East,Teen,Tech,Verdana,14
+Middle East,Teen,Entertainment,Comic Sans,14
+Middle East,Teen,Sports,Comic Sans,14
+Middle East,Teen,Travel,Roboto,14
+Middle East,Teen,Masculinity,Georgia,14
+Middle East,Teen,Femininity,Verdana,14
+Middle East,Teen,E-Commerce,Arial,14
+Middle East,Teen,Neutral,Roboto,14
+Middle East,Adult,Finance,Comic Sans,12
+Middle East,Adult,Tech,Verdana,12
+Middle East,Adult,Entertainment,Comic Sans,12
+Middle East,Adult,Sports,Comic Sans,12
+Middle East,Adult,Travel,Roboto,12
+Middle East,Adult,Masculinity,Georgia,12
+Middle East,Adult,Femininity,Verdana,12
+Middle East,Adult,E-Commerce,Arial,12
+Middle East,Adult,Neutral,Roboto,12
+Middle East,Elder,Finance,Comic Sans,18
+Middle East,Elder,Tech,Verdana,18
+Middle East,Elder,Entertainment,Comic Sans,18
+Middle East,Elder,Sports,Comic Sans,18
+Middle East,Elder,Travel,Roboto,18
+Middle East,Elder,Masculinity,Georgia,18
+Middle East,Elder,Femininity,Verdana,18
+Middle East,Elder,E-Commerce,Arial,18
+Middle East,Elder,Neutral,Roboto,18
+Western (Europe + North America),Child,Finance,Arial,16
+Western (Europe + North America),Child,Tech,Verdana,16
+Western (Europe + North America),Child,Entertainment,Verdana,16
+Western (Europe + North America),Child,Sports,Georgia,16
+Western (Europe + North America),Child,Travel,Comic Sans,16
+Western (Europe + North America),Child,Masculinity,Comic Sans,16
+Western (Europe + North America),Child,Femininity,Verdana,16
+Western (Europe + North America),Child,E-Commerce,Arial,16
+Western (Europe + North America),Child,Neutral,Verdana,16
+Western (Europe + North America),Teen,Finance,Arial,14
+Western (Europe + North America),Teen,Tech,Verdana,14
+Western (Europe + North America),Teen,Entertainment,Verdana,14
+Western (Europe + North America),Teen,Sports,Georgia,14
+Western (Europe + North America),Teen,Travel,Comic Sans,14
+Western (Europe + North America),Teen,Masculinity,Comic Sans,14
+Western (Europe + North America),Teen,Femininity,Verdana,14
+Western (Europe + North America),Teen,E-Commerce,Arial,14
+Western (Europe + North America),Teen,Neutral,Verdana,14
+Western (Europe + North America),Adult,Finance,Arial,12
+Western (Europe + North America),Adult,Tech,Verdana,12
+Western (Europe + North America),Adult,Entertainment,Verdana,12
+Western (Europe + North America),Adult,Sports,Georgia,12
+Western (Europe + North America),Adult,Travel,Comic Sans,12
+Western (Europe + North America),Adult,Masculinity,Comic Sans,12
+Western (Europe + North America),Adult,Femininity,Verdana,12
+Western (Europe + North America),Adult,E-Commerce,Arial,12
+Western (Europe + North America),Adult,Neutral,Verdana,12
+Western (Europe + North America),Elder,Finance,Arial,18
+Western (Europe + North America),Elder,Tech,Verdana,18
+Western (Europe + North America),Elder,Entertainment,Verdana,18
+Western (Europe + North America),Elder,Sports,Georgia,18
+Western (Europe + North America),Elder,Travel,Comic Sans,18
+Western (Europe + North America),Elder,Masculinity,Comic Sans,18
+Western (Europe + North America),Elder,Femininity,Verdana,18
+Western (Europe + North America),Elder,E-Commerce,Arial,18
+Western (Europe + North America),Elder,Neutral,Verdana,18
+Oceania,Child,Finance,Arial,16
+Oceania,Child,Tech,Georgia,16
+Oceania,Child,Entertainment,Verdana,16
+Oceania,Child,Sports,Georgia,16
+Oceania,Child,Travel,Arial,16
+Oceania,Child,Masculinity,Comic Sans,16
+Oceania,Child,Femininity,Georgia,16
+Oceania,Child,E-Commerce,Arial,16
+Oceania,Child,Neutral,Roboto,16
+Oceania,Teen,Finance,Arial,14
+Oceania,Teen,Tech,Georgia,14
+Oceania,Teen,Entertainment,Verdana,14
+Oceania,Teen,Sports,Georgia,14
+Oceania,Teen,Travel,Arial,14
+Oceania,Teen,Masculinity,Comic Sans,14
+Oceania,Teen,Femininity,Georgia,14
+Oceania,Teen,E-Commerce,Arial,14
+Oceania,Teen,Neutral,Roboto,14
+Oceania,Adult,Finance,Arial,12
+Oceania,Adult,Tech,Georgia,12
+Oceania,Adult,Entertainment,Verdana,12
+Oceania,Adult,Sports,Georgia,12
+Oceania,Adult,Travel,Arial,12
+Oceania,Adult,Masculinity,Comic Sans,12
+Oceania,Adult,Femininity,Georgia,12
+Oceania,Adult,E-Commerce,Arial,12
+Oceania,Adult,Neutral,Roboto,12
+Oceania,Elder,Finance,Arial,18
+Oceania,Elder,Tech,Georgia,18
+Oceania,Elder,Entertainment,Verdana,18
+Oceania,Elder,Sports,Georgia,18
+Oceania,Elder,Travel,Arial,18
+Oceania,Elder,Masculinity,Comic Sans,18
+Oceania,Elder,Femininity,Georgia,18
+Oceania,Elder,E-Commerce,Arial,18
+Oceania,Elder,Neutral,Roboto,18
+South America,Child,Finance,Roboto,16
+South America,Child,Tech,Roboto,16
+South America,Child,Entertainment,Times New Roman,16
+South America,Child,Sports,Roboto,16
+South America,Child,Travel,Comic Sans,16
+South America,Child,Masculinity,Georgia,16
+South America,Child,Femininity,Roboto,16
+South America,Child,E-Commerce,Verdana,16
+South America,Child,Neutral,Comic Sans,16
+South America,Teen,Finance,Roboto,14
+South America,Teen,Tech,Roboto,14
+South America,Teen,Entertainment,Times New Roman,14
+South America,Teen,Sports,Roboto,14
+South America,Teen,Travel,Comic Sans,14
+South America,Teen,Masculinity,Georgia,14
+South America,Teen,Femininity,Roboto,14
+South America,Teen,E-Commerce,Verdana,14
+South America,Teen,Neutral,Comic Sans,14
+South America,Adult,Finance,Roboto,12
+South America,Adult,Tech,Roboto,12
+South America,Adult,Entertainment,Times New Roman,12
+South America,Adult,Sports,Roboto,12
+South America,Adult,Travel,Comic Sans,12
+South America,Adult,Masculinity,Georgia,12
+South America,Adult,Femininity,Roboto,12
+South America,Adult,E-Commerce,Verdana,12
+South America,Adult,Neutral,Comic Sans,12
+South America,Elder,Finance,Roboto,18
+South America,Elder,Tech,Roboto,18
+South America,Elder,Entertainment,Times New Roman,18
+South America,Elder,Sports,Roboto,18
+South America,Elder,Travel,Comic Sans,18
+South America,Elder,Masculinity,Georgia,18
+South America,Elder,Femininity,Roboto,18
+South America,Elder,E-Commerce,Verdana,18
+South America,Elder,Neutral,Comic Sans,18
+Africa,Child,Finance,Georgia,16
+Africa,Child,Tech,Courier New,16
+Africa,Child,Entertainment,Verdana,16
+Africa,Child,Sports,Georgia,16
+Africa,Child,Travel,Arial,16
+Africa,Child,Masculinity,Roboto,16
+Africa,Child,Femininity,Courier New,16
+Africa,Child,E-Commerce,Courier New,16
+Africa,Child,Neutral,Arial,16
+Africa,Teen,Finance,Georgia,14
+Africa,Teen,Tech,Courier New,14
+Africa,Teen,Entertainment,Verdana,14
+Africa,Teen,Sports,Georgia,14
+Africa,Teen,Travel,Arial,14
+Africa,Teen,Masculinity,Roboto,14
+Africa,Teen,Femininity,Courier New,14
+Africa,Teen,E-Commerce,Courier New,14
+Africa,Teen,Neutral,Arial,14
+Africa,Adult,Finance,Georgia,12
+Africa,Adult,Tech,Courier New,12
+Africa,Adult,Entertainment,Verdana,12
+Africa,Adult,Sports,Georgia,12
+Africa,Adult,Travel,Arial,12
+Africa,Adult,Masculinity,Roboto,12
+Africa,Adult,Femininity,Courier New,12
+Africa,Adult,E-Commerce,Courier New,12
+Africa,Adult,Neutral,Arial,12
+Africa,Elder,Finance,Georgia,18
+Africa,Elder,Tech,Courier New,18
+Africa,Elder,Entertainment,Verdana,18
+Africa,Elder,Sports,Georgia,18
+Africa,Elder,Travel,Arial,18
+Africa,Elder,Masculinity,Roboto,18
+Africa,Elder,Femininity,Courier New,18
+Africa,Elder,E-Commerce,Courier New,18
+Africa,Elder,Neutral,Arial,18
+All,All,E-Commerce,Arial,10
+All,All,Entertainment,Comic Sans,10
+All,All,Femininity,Arial,10
+All,All,Finance,Arial,10
+All,All,Masculinity,Arial,10
+All,All,Neutral,Arial,10
+All,All,Sports,Arial,10
+All,All,Tech,Arial,10
+All,All,Travel,Arial,10
+All,Adult,E-Commerce,Arial,10
+All,Adult,Entertainment,Comic Sans,10
+All,Adult,Femininity,Arial,10
+All,Adult,Finance,Arial,10
+All,Adult,Masculinity,Arial,10
+All,Adult,Neutral,Arial,10
+All,Adult,Sports,Arial,10
+All,Adult,Tech,Arial,10
+All,Adult,Travel,Arial,10
+All,Child,E-Commerce,Arial,14
+All,Child,Entertainment,Comic Sans,14
+All,Child,Femininity,Arial,14
+All,Child,Finance,Arial,14
+All,Child,Masculinity,Arial,14
+All,Child,Neutral,Arial,14
+All,Child,Sports,Arial,14
+All,Child,Tech,Arial,14
+All,Child,Travel,Arial,14
+All,Elder,E-Commerce,Arial,16
+All,Elder,Entertainment,Comic Sans,16
+All,Elder,Femininity,Arial,16
+All,Elder,Finance,Arial,16
+All,Elder,Masculinity,Arial,16
+All,Elder,Neutral,Arial,16
+All,Elder,Sports,Arial,16
+All,Elder,Tech,Arial,16
+All,Elder,Travel,Arial,16
+All,Teen,E-Commerce,Arial,12
+All,Teen,Entertainment,Comic Sans,12
+All,Teen,Femininity,Arial,12
+All,Teen,Finance,Arial,12
+All,Teen,Masculinity,Arial,12
+All,Teen,Neutral,Arial,12
+All,Teen,Sports,Arial,12
+All,Teen,Tech,Arial,12
+All,Teen,Travel,Arial,12
+Africa,All,E-Commerce,Courier New,10
+Africa,All,Entertainment,Verdana,10
+Africa,All,Femininity,Courier New,10
+Africa,All,Finance,Georgia,10
+Africa,All,Masculinity,Roboto,10
+Africa,All,Neutral,Arial,10
+Africa,All,Sports,Georgia,10
+Africa,All,Tech,Courier New,10
+Africa,All,Travel,Arial,10
+East Asia,All,E-Commerce,Georgia,10
+East Asia,All,Entertainment,Roboto,10
+East Asia,All,Femininity,Arial,10
+East Asia,All,Finance,Verdana,10
+East Asia,All,Masculinity,Times New Roman,10
+East Asia,All,Neutral,Roboto,10
+East Asia,All,Sports,Arial,10
+East Asia,All,Tech,Arial,10
+East Asia,All,Travel,Arial,10
+Middle East,All,E-Commerce,Arial,10
+Middle East,All,Entertainment,Comic Sans,10
+Middle East,All,Femininity,Verdana,10
+Middle East,All,Finance,Comic Sans,10
+Middle East,All,Masculinity,Georgia,10
+Middle East,All,Neutral,Roboto,10
+Middle East,All,Sports,Comic Sans,10
+Middle East,All,Tech,Verdana,10
+Middle East,All,Travel,Roboto,10
+Oceania,All,E-Commerce,Arial,10
+Oceania,All,Entertainment,Verdana,10
+Oceania,All,Femininity,Georgia,10
+Oceania,All,Finance,Arial,10
+Oceania,All,Masculinity,Comic Sans,10
+Oceania,All,Neutral,Roboto,10
+Oceania,All,Sports,Georgia,10
+Oceania,All,Tech,Georgia,10
+Oceania,All,Travel,Arial,10
+South America,All,E-Commerce,Verdana,10
+South America,All,Entertainment,Times New Roman,10
+South America,All,Femininity,Roboto,10
+South America,All,Finance,Roboto,10
+South America,All,Masculinity,Georgia,10
+South America,All,Neutral,Comic Sans,10
+South America,All,Sports,Roboto,10
+South America,All,Tech,Roboto,10
+South America,All,Travel,Comic Sans,10
+South Asia,All,E-Commerce,Arial,10
+South Asia,All,Entertainment,Roboto,10
+South Asia,All,Femininity,Georgia,10
+South Asia,All,Finance,Roboto,10
+South Asia,All,Masculinity,Courier New,10
+South Asia,All,Neutral,Arial,10
+South Asia,All,Sports,Verdana,10
+South Asia,All,Tech,Georgia,10
+South Asia,All,Travel,Verdana,10
+Southeast Asia,All,E-Commerce,Roboto,10
+Southeast Asia,All,Entertainment,Courier New,10
+Southeast Asia,All,Femininity,Verdana,10
+Southeast Asia,All,Finance,Comic Sans,10
+Southeast Asia,All,Masculinity,Arial,10
+Southeast Asia,All,Neutral,Roboto,10
+Southeast Asia,All,Sports,Comic Sans,10
+Southeast Asia,All,Tech,Roboto,10
+Southeast Asia,All,Travel,Comic Sans,10
+Western (Europe + North America),All,E-Commerce,Arial,10
+Western (Europe + North America),All,Entertainment,Verdana,10
+Western (Europe + North America),All,Femininity,Verdana,10
+Western (Europe + North America),All,Finance,Arial,10
+Western (Europe + North America),All,Masculinity,Comic Sans,10
+Western (Europe + North America),All,Neutral,Verdana,10
+Western (Europe + North America),All,Sports,Georgia,10
+Western (Europe + North America),All,Tech,Verdana,10
+Western (Europe + North America),All,Travel,Comic Sans,10
