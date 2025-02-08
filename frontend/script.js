@@ -20,6 +20,12 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
     }
 
     const formData = new FormData();
+    const imageContainer = document.getElementById("imageContainer");
+    const downloadBtn = document.getElementById("downloadBtn");
+
+    imageContainer.innerHTML = ""; // Clear previous images
+    downloadBtn.style.display = "none"; // Hide download button initially
+
     Array.from(sketch).forEach(file => {
         formData.append("sketch", file);  // Append each file correctly
     });
@@ -36,52 +42,84 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
         const response = await fetch("http://localhost:8000/api/generate-ui", {
             method: "POST",
             body: formData
-        });
+        }) 
+    
+        /* Ensure 'response' exists before checking properties
+        if (!response) {
+            alert("No response received from server")
+            throw new Error("No response received from server");
+        }
+
+        if (!response.ok) {
+            const errorData = await response.json(); // Read error response
+            alert("error")
+            throw new Error(`Error ${response.status}: ${errorData.detail || "Unknown error"}`);
+        }
+
+        const data = await response.json(); // Read JSON response
+        console.log("Success:", data);
+        alert(data) */ 
+
+        if (!response.ok) {
+            throw new Error(`Error ${response.status}: ${await response.text()}`);
+        }
+
+        const data = await response.json();
+        console.log("Received response:", data);
+
+        if (!data.generated_images || data.generated_images.length === 0) {
+            throw new Error("No images were generated.");
+        }
+
+        let loadedImages = []; // Store successfully loaded images
 
         if (response.ok) {
-            /*const blob = await response.blob();
-            const imageUrl = URL.createObjectURL(blob);
-            
-            // Display the generated image
             const generatedImage = document.getElementById("generatedImage");
-            generatedImage.src = imageUrl;
-
-            // Show the download button
-            const downloadBtn = document.getElementById("downloadBtn");
-            downloadBtn.style.display = "inline-block";
-            downloadBtn.onclick = function () {
-                const link = document.createElement("a");
-                link.href = imageUrl;
-                link.download = "Generated_UI.png";
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            };*/
-            const result = await response.json(); // Expect a JSON response
-            console.log("Generated results:", result);
-
-            // Display the generated images
-            const resultContainer = document.getElementById("resultContainer");
-            resultContainer.innerHTML = ""; // Clear previous results
-
-            result.generated_images.forEach((imageUrl, index) => {
-                const imgElement = document.createElement("img");
-                imgElement.src = imageUrl;
-                imgElement.alt = `Generated UI ${index + 1}`;
-                imgElement.style.margin = "10px";
-                imgElement.style.maxWidth = "200px";
-                resultContainer.appendChild(imgElement);
-            });
-        } else {
-            alert("Failed to generate UI. Please try again.");
+            generatedImage.style.display = "none";
+            loadingIndicator.style.display = "none";
+            fallbackLoadFromOutputs1();
         }
+        
+        /* data.generated_images.forEach((imagePath, index) => {
+            const tempImage = new Image();
+            tempImage.src = `http://localhost:8000/${imagePath}`; // Adjust path to backend URL
+
+            tempImage.onload = function () {
+                // Get image dimensions
+                const imageWidth = tempImage.naturalWidth;
+                const imageHeight = tempImage.naturalHeight;
+
+                // Create a new image element
+                const imgElement = document.createElement("img");
+                imgElement.src = tempImage.src;
+                imgElement.style.width = `${imageWidth / 2}px`;
+                imgElement.style.height = `${imageHeight / 2}px`;
+                imgElement.style.margin = "10px";
+
+                imageContainer.appendChild(imgElement); // Append image to the container
+                loadedImages.push(tempImage.src); // Store successful image path
+
+                console.log(`Loaded: ${tempImage.src} (${imageWidth}x${imageHeight})`);
+                
+                // Save to localStorage for persistence
+                localStorage.setItem("loadedImages", JSON.stringify(loadedImages));
+
+                // Show download button after images load
+                const generatedImage = document.getElementById("generatedImage");
+                generatedImage.style.display = "none";
+                loadingIndicator.style.display = "none";
+                downloadBtn.style.display = "inline-block";
+            };
+
+            tempImage.onerror = function () {
+                console.log(`Failed to load image: ${tempImage.src}`);
+            };
+        }); */
+        
     } catch (error) {
-        alert(error);
-        console.error("Error:", error);
-        /* const generatedImage = document.getElementById("generatedImage");
-        generatedImage.style.display = "none";
-        loadingIndicator.style.display = "none";
-        //fallbackLoadFromOutputs();
+        console.error("Fetch Error:", error);
+        alert(error.message);
+        /* fallbackLoadFromOutputs();
         fallbackLoadFromOutputs1(); */
     }
 });
@@ -94,7 +132,7 @@ async function deleteAllImages() {
 
         const result = await response.json();
         console.log(result.message);
-        alert(result.message);  // Show success message
+        // alert(result.message);  // Show success message
 
         // Remove all images from the UI
         document.getElementById("imageContainer").innerHTML = "";
@@ -319,11 +357,11 @@ document.getElementById("downloadBtn").onclick = async function () {
 
     // Define the image paths in the outputs folder
     const imagePaths = [
-        'http://localhost:8000/outputs/generated_ui0.png',
-        'http://localhost:8000/outputs/generated_ui1.png',
-        'http://localhost:8000/outputs/generated_ui2.png',
-        'http://localhost:8000/outputs/generated_ui3.png',
-        'http://localhost:8000/outputs/generated_ui4.png'
+        'http://localhost:8001/outputs/generated_ui0.png',
+        'http://localhost:8001/outputs/generated_ui1.png',
+        'http://localhost:8001/outputs/generated_ui2.png',
+        'http://localhost:8001/outputs/generated_ui3.png',
+        'http://localhost:8001/outputs/generated_ui4.png'
     ];
 
     let imagesAdded = 0;
@@ -336,7 +374,7 @@ document.getElementById("downloadBtn").onclick = async function () {
             const response = await fetch(imgURL);
             
             if (!response.ok) {
-                alert('Image not found or failed to load');
+                // alert('Image not found or failed to load');
                 console.warn(`Image not found or failed to load: ${imgURL}`);
                 continue;  // Skip if the image doesn't exist
             }

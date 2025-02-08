@@ -16,11 +16,12 @@ from utils import preprocess_image, load_model, generate_ui_image, change_backgr
 
 app = FastAPI()
 
-app.mount("/", StaticFiles(directory="../frontend", html=True), name="frontend")
+'''app.mount("/", StaticFiles(directory="../frontend", html=True), name="frontend")'''
+# app.mount("/", StaticFiles(directory="outputs", html=True), name="outputs")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8000"],  # Use ["http://localhost:8001"] for security
+    allow_origins=["http://localhost:8001"],  # Use ["http://localhost:8001"] for security
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -29,7 +30,7 @@ app.add_middleware(
 # Ensure the outputs directory exists
 os.makedirs("outputs", exist_ok=True)
 
-OUTPUT_FOLDER = '../backend/outputs'
+OUTPUT_FOLDER = '../frontend/outputs'
 
 @app.delete("/delete-all-images")
 async def delete_all_images():
@@ -50,7 +51,7 @@ async def delete_all_images():
         raise HTTPException(status_code=500, detail=f"Error deleting images: {str(e)}")
 
 # Load the trained model
-MODEL_PATH = "../backend/models/G_sketch_to_ui.pth"
+MODEL_PATH = "models/G_sketch_to_ui.pth"
 model = load_model(MODEL_PATH)
 
 font_details_csv = pd.read_csv("font_details.csv")  # Replace with your file path
@@ -119,7 +120,7 @@ async def generate_ui(
         preprocessed_image = preprocessed_image.squeeze(0).permute(1, 2, 0).cpu().numpy()  # CHW to HWC
 
         # Generate and save the output image
-        output_filename = f"../backend/outputs/generated_ui{idx}.png"
+        output_filename = f"../frontend/outputs/generated_ui{idx}.png"
         output_path = generate_ui_image(generated_tensor, output_filename)
         
         # Save the generated image for further processing
