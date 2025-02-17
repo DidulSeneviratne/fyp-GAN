@@ -6,3 +6,8 @@ Pillow
 python-multipart
 easyocr
 pandas
+faiss-cpu
+numpy
+opencv-python
+scikit-image
+scikit-learn

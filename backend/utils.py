@@ -7,6 +7,19 @@ import cv2
 import easyocr
 import numpy as np
 import io
+import torch
+import torchvision.transforms as transforms
+from torchvision import models
+from PIL import Image
+import numpy as np
+import os
+import faiss
+from scipy.spatial.distance import euclidean
+from skimage.metrics import structural_similarity as ssim
+import cv2
+from multiprocessing import Pool, cpu_count
+from sklearn.decomposition import PCA
+from sklearn.cluster import KMeans
 
 def load_model(model_path):
     """Load the Generator model with pre-trained weights."""
@@ -180,3 +193,149 @@ def overlay_text_on_image(input_image, generated_image_path, face, size, color, 
     cv2.imwrite(final_image_path, cv2.cvtColor(final_image, cv2.COLOR_RGB2BGR))
     return final_image_path
 
+def extract_features(image_path):
+    """Extract deep learning features from an image using ResNet-50."""
+
+    # Load a pre-trained ResNet-50 model for feature extraction
+    model = models.resnet50(pretrained=True)
+    model = torch.nn.Sequential(*list(model.children())[:-1])  # Remove classification layer
+    model.eval()
+
+    # Image preprocessing transformations
+    transform = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+    ])
+
+    image = Image.open(image_path).convert('RGB')
+    image = transform(image).unsqueeze(0)
+    with torch.no_grad():
+        features = model(image)
+    return features.squeeze().numpy()
+
+def calculate_ssim(image_path1, image_path2):
+    """Calculate SSIM (Structural Similarity Index) between two images."""
+    img1 = cv2.imread(image_path1, cv2.IMREAD_GRAYSCALE)
+    img2 = cv2.imread(image_path2, cv2.IMREAD_GRAYSCALE)
+
+    # Resize images to the same size if they are different
+    img1 = cv2.resize(img1, (224, 224))
+    img2 = cv2.resize(img2, (224, 224))
+
+    # Compute SSIM
+    score, _ = ssim(img1, img2, full=True)
+    return score
+
+def calculate_ssim_parallel(args):
+    """Helper function for multiprocessing SSIM calculation."""
+    img1_path, img2_path = args
+    return calculate_ssim(img1_path, img2_path)
+
+def compute_ssim_parallel(low_quality_img_path, dataset_image_paths):
+    """Compute SSIM in parallel across multiple CPU cores."""
+    args = [(low_quality_img_path, img_path) for img_path in dataset_image_paths]
+    
+    with Pool(processes=cpu_count()) as pool:
+        ssim_scores = pool.map(calculate_ssim_parallel, args)
+
+    return ssim_scores
+
+def build_faiss_index(feature_list):
+    """Builds a FAISS index for fast nearest neighbor search."""
+    d = feature_list.shape[1]  # Feature vector dimension
+    index = faiss.IndexFlatL2(d)  # L2 (Euclidean distance) index
+    index.add(feature_list.astype('float32'))  # Add dataset features to FAISS index
+    return index
+
+def search_faiss(index, query_vector, image_paths, k=1):
+    """Searches for the k most similar images in the FAISS index."""
+    query_vector = np.expand_dims(query_vector, axis=0).astype('float32')  # Ensure correct shape
+    D, I = index.search(query_vector, k)  # Find nearest neighbors
+    return [image_paths[i] for i in I[0]]  # Return the most similar image paths
+
+def reduce_dimensions(features, n_components=128):
+    """Reduces feature dimensionality using PCA."""
+    pca = PCA(n_components=n_components)
+    reduced_features = pca.fit_transform(features)
+    return reduced_features
+
+def find_most_similar_image_optimized(low_quality_img_path, dataset_folder):
+    """Optimized function to find the most similar image using FAISS and parallel SSIM."""
+    
+    # Load dataset features (or extract if not saved)
+    try:
+        dataset_features = np.load("image_features.npy")
+        image_paths = np.load("image_paths.npy", allow_pickle=True)
+    except:
+        dataset_features = []
+        image_paths = []
+        for img_name in os.listdir(dataset_folder):
+            img_path = os.path.join(dataset_folder, img_name)
+            img_features = extract_features(img_path)
+            dataset_features.append(img_features)
+            image_paths.append(img_path)
+
+        dataset_features = np.array(dataset_features)
+        np.save("image_features.npy", dataset_features)  # Cache feature vectors
+        np.save("image_paths.npy", np.array(image_paths))  # Cache image paths
+
+    # Reduce dimensions using PCA
+    dataset_features = reduce_dimensions(dataset_features, n_components=128)
+
+    # Extract features for the input image and reduce dimensions
+    low_quality_features = extract_features(low_quality_img_path)
+    low_quality_features = reduce_dimensions(np.array([low_quality_features]), n_components=128)[0]
+
+    # Use FAISS for fast retrieval
+    faiss_index = build_faiss_index(dataset_features)
+    top_matches = search_faiss(faiss_index, low_quality_features, image_paths, k=5)
+
+    # Compute SSIM in parallel for the top 5 similar images
+    ssim_scores = compute_ssim_parallel(low_quality_img_path, top_matches)
+
+    # Select the best match based on SSIM
+    best_ssim_idx = np.argmax(ssim_scores)
+    best_match_path = top_matches[best_ssim_idx]
+
+    print(f"Best Match (FAISS + SSIM): {best_match_path}")
+    print(f"SSIM Score: {ssim_scores[best_ssim_idx]}")
+
+    return best_match_path
+
+# Identify the background color
+def find_dominant_color(image, k=4):
+    pixels = image.reshape(-1, 3)
+    kmeans = KMeans(n_clusters=k).fit(pixels)
+    dominant_color = kmeans.cluster_centers_[kmeans.labels_[0]].astype(int)
+    return tuple(dominant_color)
+
+def change_background_color(image, new_color):
+    # Convert the background_color to a 3-channel RGB tuple
+    image_path = cv2.imread(image)
+    rgb_image = cv2.cvtColor(image_path, cv2.COLOR_BGR2RGB)
+    background_color = find_dominant_color(rgb_image)
+    background_color_rgb = background_color[:3]
+
+    # Calculate lower and upper boundaries for inRange
+    lower_boundary = np.array(background_color_rgb) - 30
+    upper_boundary = np.array(background_color_rgb) + 30
+
+    mask = cv2.inRange(image, lower_boundary, upper_boundary)  # Tolerance range
+    image[mask > 0] = new_color  # Replace the background
+    return image
+
+def enhance_contrast(image):
+    # Convert to LAB color space
+    lab_image = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
+    l_channel, a_channel, b_channel = cv2.split(lab_image)
+
+    # Apply CLAHE (Contrast Limited Adaptive Histogram Equalization)
+    clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8, 8))
+    l_channel = clahe.apply(l_channel)
+
+    # Merge the LAB channels back
+    enhanced_image = cv2.merge((l_channel, a_channel, b_channel))
+    enhanced_image = cv2.cvtColor(enhanced_image, cv2.COLOR_LAB2BGR)
+
+    return enhanced_image

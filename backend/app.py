@@ -12,7 +12,7 @@ import torch
 import numpy as np
 import pandas as pd
 from PIL import Image
-from utils import preprocess_image, load_model, generate_ui_image, change_background, resize_to_input, overlay_text_on_image
+from utils import preprocess_image, load_model, generate_ui_image, change_background, resize_to_input, overlay_text_on_image, find_most_similar_image_optimized, change_background_color
 
 app = FastAPI()
 
@@ -104,8 +104,14 @@ async def generate_ui(
     print(f"{font_face},{font_size},{color_preference},{text_color}")
 
     for idx, sketches in enumerate(sketch):
+
+        # Example Usage
+        dataset_folder = "dataset"
+
+        best_match_image = find_most_similar_image_optimized(sketches, dataset_folder)
+
         # Read the uploaded image file
-        sketch_data = await sketches.read()
+        sketch_data = await best_match_image.read()
 
         image = Image.open(io.BytesIO(sketch_data))
 
@@ -128,7 +134,8 @@ async def generate_ui(
 
         # Step 3: Post-process the generated image
         # 3.1 Change Background Color
-        generated_image_path = change_background(output_path, color_preference, output_filename)
+        image = change_background_color(output_path, text_color)
+        generated_image_path = change_background(image, color_preference, output_filename)
 
         # 3.2 Resize the image to match the input dimensions
         resized_image_path = resize_to_input(image, generated_image_path, output_filename)
