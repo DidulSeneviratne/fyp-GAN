@@ -10,6 +10,7 @@ import io
 import torch
 import torchvision.transforms as transforms
 from torchvision import models
+from torchvision.models import resnet50, ResNet50_Weights
 from PIL import Image
 import numpy as np
 import os
@@ -20,6 +21,22 @@ import cv2
 from multiprocessing import Pool, cpu_count
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
+
+def resize_image(image, target_size):
+    """Resize image to the target size while maintaining aspect ratio."""
+    return image.resize(target_size)
+
+
+def rgb_to_hsv(rgb):
+    # Convert RGB to a numpy array and reshape it to match OpenCV's input format
+    rgb_color = np.uint8([[list(rgb)]])  # Convert (R, G, B) to 3D numpy array
+
+    # Convert from RGB to HSV
+    hsv_color = cv2.cvtColor(rgb_color, cv2.COLOR_RGB2HSV)
+
+    # Extract HSV values
+    return tuple(hsv_color[0][0])  # Return as a tuple (H, S, V)
+
 
 def load_model(model_path):
     """Load the Generator model with pre-trained weights."""
@@ -33,6 +50,7 @@ def load_model(model_path):
     model.eval()
     return model
 
+
 def preprocess_image(image_bytes):
     """Preprocess the uploaded sketch image."""
     image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
@@ -43,6 +61,7 @@ def preprocess_image(image_bytes):
     ])
     return transform(image).unsqueeze(0)
 
+
 def generate_ui_image(output_tensor, output_path):
     """Convert the model output tensor to an image and save it."""
     tensor = (output_tensor.squeeze().cpu() + 1) / 2
@@ -50,6 +69,7 @@ def generate_ui_image(output_tensor, output_path):
     image = transforms.ToPILImage()(tensor)
     image.save(output_path)
     return output_path
+
 
 def change_background(image_path, color_preference, output_path):
     # Load the image
@@ -78,6 +98,7 @@ def change_background(image_path, color_preference, output_path):
     cv2.imwrite(output_path, processed_image)
     return output_path
 
+
 def resize_to_input(input_image, generated_image_path, output_path):
     # Load images
     input_cv = np.array(input_image)
@@ -93,6 +114,7 @@ def resize_to_input(input_image, generated_image_path, output_path):
     # output_path = "outputs/resized_image.jpg"
     cv2.imwrite(output_path, resized_image)
     return output_path
+
 
 def easyocr_text_detection(image_path):
     # Initialize the EasyOCR Reader
@@ -110,7 +132,7 @@ def easyocr_text_detection(image_path):
     return extracted_text
 
 
-def overlay_text_on_image(input_image, generated_image_path, face, size, color, final_image_path):
+def overlay_text_on_image(input_image, generated_image_path, face, size, color, final_image_path, sketch_data):
     # Load the generated image
     generated_cv = cv2.imread(generated_image_path)
     generated_rgb = cv2.cvtColor(generated_cv, cv2.COLOR_BGR2RGB)
@@ -120,7 +142,7 @@ def overlay_text_on_image(input_image, generated_image_path, face, size, color, 
     draw = ImageDraw.Draw(pil_image)
 
     # Extract text from the input image
-    extracted_text = easyocr_text_detection(input_image)
+    extracted_text = easyocr_text_detection(sketch_data)
 
     # Overlay text
     for text, _, bbox in extracted_text:
@@ -193,26 +215,6 @@ def overlay_text_on_image(input_image, generated_image_path, face, size, color, 
     cv2.imwrite(final_image_path, cv2.cvtColor(final_image, cv2.COLOR_RGB2BGR))
     return final_image_path
 
-def extract_features(image_path):
-    """Extract deep learning features from an image using ResNet-50."""
-
-    # Load a pre-trained ResNet-50 model for feature extraction
-    model = models.resnet50(pretrained=True)
-    model = torch.nn.Sequential(*list(model.children())[:-1])  # Remove classification layer
-    model.eval()
-
-    # Image preprocessing transformations
-    transform = transforms.Compose([
-        transforms.Resize((224, 224)),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
-    ])
-
-    image = Image.open(image_path).convert('RGB')
-    image = transform(image).unsqueeze(0)
-    with torch.no_grad():
-        features = model(image)
-    return features.squeeze().numpy()
 
 def calculate_ssim(image_path1, image_path2):
     """Calculate SSIM (Structural Similarity Index) between two images."""
@@ -232,6 +234,7 @@ def calculate_ssim_parallel(args):
     img1_path, img2_path = args
     return calculate_ssim(img1_path, img2_path)
 
+
 def compute_ssim_parallel(low_quality_img_path, dataset_image_paths):
     """Compute SSIM in parallel across multiple CPU cores."""
     args = [(low_quality_img_path, img_path) for img_path in dataset_image_paths]
@@ -241,6 +244,7 @@ def compute_ssim_parallel(low_quality_img_path, dataset_image_paths):
 
     return ssim_scores
 
+
 def build_faiss_index(feature_list):
     """Builds a FAISS index for fast nearest neighbor search."""
     d = feature_list.shape[1]  # Feature vector dimension
@@ -248,17 +252,20 @@ def build_faiss_index(feature_list):
     index.add(feature_list.astype('float32'))  # Add dataset features to FAISS index
     return index
 
+
 def search_faiss(index, query_vector, image_paths, k=1):
     """Searches for the k most similar images in the FAISS index."""
     query_vector = np.expand_dims(query_vector, axis=0).astype('float32')  # Ensure correct shape
     D, I = index.search(query_vector, k)  # Find nearest neighbors
     return [image_paths[i] for i in I[0]]  # Return the most similar image paths
 
+
 def reduce_dimensions(features, n_components=128):
     """Reduces feature dimensionality using PCA."""
     pca = PCA(n_components=n_components)
     reduced_features = pca.fit_transform(features)
     return reduced_features
+
 
 def find_most_similar_image_optimized(low_quality_img_path, dataset_folder):
     """Optimized function to find the most similar image using FAISS and parallel SSIM."""
@@ -281,11 +288,12 @@ def find_most_similar_image_optimized(low_quality_img_path, dataset_folder):
         np.save("image_paths.npy", np.array(image_paths))  # Cache image paths
 
     # Reduce dimensions using PCA
-    dataset_features = reduce_dimensions(dataset_features, n_components=128)
+    pca = PCA(n_components=50) # Create PCA object outside the loop
+    dataset_features = pca.fit_transform(dataset_features) # Fit and transform dataset feature
 
     # Extract features for the input image and reduce dimensions
     low_quality_features = extract_features(low_quality_img_path)
-    low_quality_features = reduce_dimensions(np.array([low_quality_features]), n_components=128)[0]
+    low_quality_features = pca.transform(np.array([low_quality_features]))[0]  # Transform using fitted PCA
 
     # Use FAISS for fast retrieval
     faiss_index = build_faiss_index(dataset_features)
@@ -303,12 +311,14 @@ def find_most_similar_image_optimized(low_quality_img_path, dataset_folder):
 
     return best_match_path
 
+
 # Identify the background color
 def find_dominant_color(image, k=4):
     pixels = image.reshape(-1, 3)
     kmeans = KMeans(n_clusters=k).fit(pixels)
     dominant_color = kmeans.cluster_centers_[kmeans.labels_[0]].astype(int)
     return tuple(dominant_color)
+
 
 def change_background_color(image, new_color):
     # Convert the background_color to a 3-channel RGB tuple
@@ -325,6 +335,7 @@ def change_background_color(image, new_color):
     image[mask > 0] = new_color  # Replace the background
     return image
 
+
 def enhance_contrast(image):
     # Convert to LAB color space
     lab_image = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
@@ -339,3 +350,83 @@ def enhance_contrast(image):
     enhanced_image = cv2.cvtColor(enhanced_image, cv2.COLOR_LAB2BGR)
 
     return enhanced_image
+
+
+def extract_features(image_path):
+    """Extract deep learning features from an image using ResNet-50."""
+
+    # Load a pre-trained ResNet-50 model for feature extraction
+    # model = resnet50(weights=ResNet50_Weights.IMAGENET1K_V1)
+    model = models.resnet50(pretrained=True)
+    model = torch.nn.Sequential(*list(model.children())[:-1])  # Remove classification layer
+    model.eval()
+
+    # Image preprocessing transformations
+    transform = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+    ])
+
+    image = Image.open(image_path).convert('RGB')
+    image = transform(image).unsqueeze(0)
+    with torch.no_grad():
+        features = model(image)
+    return features.squeeze().numpy()
+
+
+def calculate_ssim(image_path1, image_path2):
+    """Calculate SSIM (Structural Similarity Index) between two images."""
+    img1 = cv2.imread(image_path1, cv2.IMREAD_GRAYSCALE)
+    img2 = cv2.imread(image_path2, cv2.IMREAD_GRAYSCALE)
+
+    # Resize images to the same size if they are different
+    img1 = cv2.resize(img1, (224, 224))
+    img2 = cv2.resize(img2, (224, 224))
+
+    # Compute SSIM
+    score, _ = ssim(img1, img2, full=True)
+    return score
+
+
+def find_most_similar_image(low_quality_img_path, dataset_path):
+    """Find the most similar high-quality image using Euclidean Distance & SSIM."""
+    
+    # Extract features for the low-quality image
+    low_quality_features = extract_features(low_quality_img_path)
+
+    # Store results
+    best_match = low_quality_img_path
+    best_euclidean_score = float('inf')  # Lower is better
+    best_ssim_score = -1  # Higher is better
+    best_combined_score = float('inf')
+
+    # Iterate over dataset images
+    for img_name in os.listdir(dataset_path):
+        img_path = os.path.join(dataset_path, img_name)
+
+        # Extract features for dataset image
+        img_features = extract_features(img_path)
+
+        # Calculate Euclidean Distance
+        # euclidean_score = euclidean(low_quality_features, img_features)
+        euclidean_score = np.linalg.norm(low_quality_features - img_features)
+
+        # Calculate SSIM Score
+        ssim_score = calculate_ssim(low_quality_img_path, img_path)
+
+        # Normalize SSIM Score (higher is better, so we subtract from 1)
+        combined_score = euclidean_score - (ssim_score * 100)  # Weighted scoring
+
+        # Find the best match based on combined metric
+        if combined_score < best_combined_score:
+            best_combined_score = combined_score
+            best_match = img_path
+            best_euclidean_score = euclidean_score
+            best_ssim_score = ssim_score
+
+    print(f"Most similar image: {best_match}")
+    print(f"Euclidean Distance: {best_euclidean_score}")
+    print(f"SSIM Score: {best_ssim_score}")
+
+    return best_match

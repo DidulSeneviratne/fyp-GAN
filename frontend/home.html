@@ -40,6 +40,7 @@
             <select id="device" name="device" required>
                 <option value="Mobile">Mobile</option>
                 <option value="Desktop">Desktop</option>
+                <option value="Tablet">Tablet</option>
             </select><br><br>
             
             <label for="product">Software Product Type:</label>
@@ -52,8 +53,24 @@
                 <option value="Masculinity">Masculinity</option>
                 <option value="Femininity">Femininity</option>
                 <option value="E-Commerce">E-Commerce</option>
+                <option value="Health">Health</option>
+                <option value="Food">Food</option>
                 <option value="Neutral">Neutral</option>
             </select><br><br>
+
+            <label>
+                <input type="checkbox" id="useCustomColor"> Custom Color Scheme
+            </label>
+
+            <!-- Color Picker (Initially Hidden) -->
+            <div id="colorPickerContainer" style="display:none;">
+                
+                <div id="colorInputs">
+                    <label> Select background color (click on the box to change): </label>
+                    <input type="color" id="color-picker1" class="color-picker" value="#ffffff" placeholder="color-picker">
+                </div>
+        
+            </div> <br>
             
             <button type="submit" id="submission">Generate UI's</button>
         </form>

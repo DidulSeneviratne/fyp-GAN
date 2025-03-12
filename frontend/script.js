@@ -6,6 +6,7 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
     const age = document.getElementById("age").value;
     const device = document.getElementById("device").value;
     const product = document.getElementById("product").value;
+    const useCustomColor = document.getElementById("useCustomColor").checked;
 
     const loadingIndicator = document.getElementById("loadingIndicator");
 
@@ -17,6 +18,19 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
     if (sketch.length > 5) {
         alert("You can upload a maximum of 5 images at a time.");
         return;
+    }
+
+    function hexToRgb(hex) {
+        hex = hex.replace(/^#/, ''); // Remove #
+        let r = parseInt(hex.substring(0, 2), 16);
+        let g = parseInt(hex.substring(2, 4), 16);
+        let b = parseInt(hex.substring(4, 6), 16);
+        return `${r}, ${g}, ${b}`;
+    }
+
+    function getSelectedColors() {
+        return Array.from(document.querySelectorAll("#color-picker1"))
+            .map(input => hexToRgb(input.value)); // Convert Hex to RGB
     }
 
     const formData = new FormData();
@@ -34,6 +48,10 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
     formData.append("age", age);
     formData.append("device", device);
     formData.append("product", product);
+    formData.append("useCustomColor", useCustomColor);
+    
+    const selectedColors1 = getSelectedColors(); // Get colors in RGB format
+    formData.append("colors1", JSON.stringify(selectedColors1)); // Send as JSON array
 
     try {
         deleteAllImages();
@@ -149,7 +167,7 @@ function fallbackLoadFromOutputs1() {
     let loadedImages = []; 
 
     for (let i = 0; i < 5; i++) {
-        const generatedImagePath = `http://localhost:8001/outputs/generated_ui${i}.png`;
+        const generatedImagePath = `http://localhost:8001/output/generated_ui${i}.png`;
         const tempImage = new Image();
 
         tempImage.src = generatedImagePath;
@@ -157,12 +175,26 @@ function fallbackLoadFromOutputs1() {
         tempImage.onload = function () {
             const imageWidth = tempImage.naturalWidth;
             const imageHeight = tempImage.naturalHeight;
+            const device = document.getElementById("device").value;
 
             // Create a new image element for each successful load
             const imgElement = document.createElement("img");
             imgElement.src = generatedImagePath;
-            imgElement.style.width = `${imageWidth / 2}px`;
-            imgElement.style.height = `${imageHeight / 2}px`;
+
+            if (device == 'Desktop'){
+                // Update the <img> element with the correct source and dimensions
+                imgElement.style.width = `${imageWidth / 4}px`;
+                imgElement.style.height = `${imageHeight / 4}px`;
+            } else if (device == 'Tablet') {
+                // Update the <img> element with the correct source and dimensions
+                imgElement.style.width = `${imageWidth / 4}px`;
+                imgElement.style.height = `${imageHeight / 4}px`;
+            } else {
+                // Update the <img> element with the correct source and dimensions
+                imgElement.style.width = `${imageWidth / 2}px`;
+                imgElement.style.height = `${imageHeight / 2}px`;
+            }
+
             imgElement.style.margin = "10px"; // Add some spacing between images
 
             imageContainer.appendChild(imgElement);
@@ -258,11 +290,24 @@ function fallbackLoadFromOutputs() {
         // Retrieve the natural width and height of the image
         const imageWidth = tempImage.naturalWidth;
         const imageHeight = tempImage.naturalHeight;
+        const device = document.getElementById("device").value;
 
-        // Update the <img> element with the correct source and dimensions
-        generatedImage.src = generatedImagePath;
-        generatedImage.style.width = `${imageWidth/2}px`;
-        generatedImage.style.height = `${imageHeight/2}px`;
+        if (device == 'Desktop'){
+            // Update the <img> element with the correct source and dimensions
+            generatedImage.src = generatedImagePath;
+            generatedImage.style.width = `${imageWidth/8}px`;
+            generatedImage.style.height = `${imageHeight/8}px`;
+        } else if (device == 'Tablet') {
+            // Update the <img> element with the correct source and dimensions
+            generatedImage.src = generatedImagePath;
+            generatedImage.style.width = `${imageWidth/4}px`;
+            generatedImage.style.height = `${imageHeight/4}px`;
+        } else {
+            // Update the <img> element with the correct source and dimensions
+            generatedImage.src = generatedImagePath;
+            generatedImage.style.width = `${imageWidth/2}px`;
+            generatedImage.style.height = `${imageHeight/2}px`;
+        }
 
         console.log(`Image dimensions set: ${imageWidth}x${imageHeight}`);
     };
@@ -357,11 +402,11 @@ document.getElementById("downloadBtn").onclick = async function () {
 
     // Define the image paths in the outputs folder
     const imagePaths = [
-        'http://localhost:8001/outputs/generated_ui0.png',
-        'http://localhost:8001/outputs/generated_ui1.png',
-        'http://localhost:8001/outputs/generated_ui2.png',
-        'http://localhost:8001/outputs/generated_ui3.png',
-        'http://localhost:8001/outputs/generated_ui4.png'
+        'http://localhost:8001/output/generated_ui0.png',
+        'http://localhost:8001/output/generated_ui1.png',
+        'http://localhost:8001/output/generated_ui2.png',
+        'http://localhost:8001/output/generated_ui3.png',
+        'http://localhost:8001/output/generated_ui4.png'
     ];
 
     let imagesAdded = 0;
@@ -404,3 +449,58 @@ document.getElementById("downloadBtn").onclick = async function () {
             document.body.removeChild(link);
         });
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+    const useCustomColor = document.getElementById("useCustomColor");
+
+    // Toggle color picker visibility when checkbox is clicked
+    useCustomColor.addEventListener("change", function () {
+        colorPickerContainer.style.display = useCustomColor.checked ? "block" : "none";
+    });
+
+});
+
+
+document.getElementById("device").addEventListener("change", function () {
+    const sketches = document.getElementById("sketch").files;
+    const device = this.value;
+
+    let imageValidationPromises = [];
+
+    for (let i = 0; i < sketches.length; i++) {
+        const sketch = sketches[i];
+        const img = new Image();
+        img.src = URL.createObjectURL(sketch);
+
+        let promise = new Promise((resolve, reject) => {
+            img.onload = function () {
+                const width = img.width;
+                const height = img.height;
+                let validSize = false;
+
+                if (device === "Desktop") {
+                    validSize = width >= 1024 && width <= 5120 && height >= 768 && height <= 2880;
+                } else if (device === "Mobile") {
+                    validSize = width >= 320 && width <= 1440 && height >= 480 && height <= 3200;
+                } else if (device === "Tablet") {
+                    validSize = width >= 768 && width <= 2560 && height >= 1024 && height <= 1600;
+                }
+
+                URL.revokeObjectURL(img.src); // Clean up object URL
+
+                if (!validSize) {
+                    alert("The images you are entering are not valid for the device size. Please see the instructions, otherwise the system will automatically resize the image.")
+                    resolve(false);
+                } else {
+                    resolve(true);
+                }
+            };
+        });
+
+        if (!isValid) {
+            break; // Stop loop if an invalid image is found
+        }
+
+    }
+
+});

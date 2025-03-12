@@ -8,6 +8,7 @@ easyocr
 pandas
 faiss-cpu
 numpy
+scipy
 opencv-python
 scikit-image
 scikit-learn

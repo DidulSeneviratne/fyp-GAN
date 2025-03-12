@@ -59,6 +59,43 @@ button {
     width: 100%;
 }
 
+#colorPickerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the whole block */
+    margin-top: 10px;
+}
+
+#colorInputs {
+    display: flex;
+    align-items: left; /* Align items vertically */
+    gap: 10px; /* Space between color picker and button */
+    justify-content: left; /* Centering inside parent */
+}
+
+#color-picker1 {
+    width: 50px;
+    height: 40px;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#addColorBtn:hover {
+    background-color: #45a049;
+}
+
+#addColorBtn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: fit-content;
+    align-items: center;
+}
+
 button:hover {
     background-color: #45a049;
 }
