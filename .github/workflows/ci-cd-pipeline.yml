@@ -24,8 +24,8 @@ jobs:
 
       - name: Install Backend Dependencies
         run: |
-          cd backend
           pip install -r requirements.txt
+          cd backend
           pip install pytest fastapi uvicorn torch pandas numpy opencv-python 
 
       - name: Run Backend Server in Background
