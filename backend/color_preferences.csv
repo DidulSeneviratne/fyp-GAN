@@ -1,406 +1,496 @@
-Region,Age,Product,Color Preference,Text Color,,,,
-East Asia,Child,Finance,"0, 200, 255","255, 255, 255",,,,
-East Asia,Teen,Finance,"0, 255, 200","255, 255, 255",,,,
-East Asia,Adult,Finance,"0, 255, 128","0, 0, 0",,,,
-East Asia,Elder,Finance,"0, 150, 255","0, 0, 0",,,,
-East Asia,Child,Tech,"20, 255, 255","255, 255, 255",,,,
-East Asia,Teen,Tech,"18, 255, 255","255, 255, 255",,,,
-East Asia,Adult,Tech,"15, 255, 200","0, 0, 0",,,,
-East Asia,Elder,Tech,"15, 100, 255","0, 0, 0",,,,
-East Asia,Child,Entertainment,"0, 0, 255","255, 255, 255",,,,
-East Asia,Teen,Entertainment,"0, 0, 240","255, 255, 255",,,,
-East Asia,Adult,Entertainment,"0, 0, 220","0, 0, 0",,,,
-East Asia,Elder,Entertainment,"0, 0, 250","0, 0, 0",,,,
-East Asia,Child,Sports,"420, 255, 255","255, 255, 255",,,,
-East Asia,Teen,Sports,"420, 170, 255","255, 255, 255",,,,
-East Asia,Adult,Sports,"420, 220, 200","0, 0, 0",,,,
-East Asia,Elder,Sports,"420, 100, 255","0, 0, 0",,,,
-East Asia,Child,Travel,"0, 200, 255","255, 255, 255",,,,
-East Asia,Teen,Travel,"0, 255, 200","255, 255, 255",,,,
-East Asia,Adult,Travel,"0, 255, 128","0, 0, 0",,,,
-East Asia,Elder,Travel,"0, 150, 255","0, 0, 0",,,,
-East Asia,Child,Masculinity,"30, 255, 255","255, 255, 255",,,,
-East Asia,Teen,Masculinity,"25, 255, 255","255, 255, 255",,,,
-East Asia,Adult,Masculinity,"22, 255, 255","0, 0, 0",,,,
-East Asia,Elder,Masculinity,"25, 80, 255","0, 0, 0",,,,
-East Asia,Child,Femininity,"375, 255, 255","255, 255, 255",,,,
-East Asia,Teen,Femininity,"370, 255, 255","255, 255, 255",,,,
-East Asia,Adult,Femininity,"370, 255, 200","0, 0, 0",,,,
-East Asia,Elder,Femininity,"350, 255, 255","0, 0, 0",,,,
-East Asia,Child,E-Commerce,"20, 255, 255","255, 255, 255",,,,
-East Asia,Teen,E-Commerce,"18, 255, 255","255, 255, 255",,,,
-East Asia,Adult,E-Commerce,"15, 255, 200","0, 0, 0",,,,
-East Asia,Elder,E-Commerce,"15, 100, 255","0, 0, 0",,,,
-East Asia,Child,Neutral,"395, 255, 255","255, 255, 255",,,,
-East Asia,Teen,Neutral,"390, 255, 255","255, 255, 255",,,,
-East Asia,Adult,Neutral,"390, 155, 255","0, 0, 0",,,,
-East Asia,Elder,Neutral,"390, 50, 255","0, 0, 0",,,,
-Southeast Asia,Child,Finance,"240, 255, 255","255, 255, 255",,,,
-Southeast Asia,Teen,Finance,"245, 255, 255","255, 255, 255",,,,
-Southeast Asia,Adult,Finance,"245, 255, 200","0, 0, 0",,,,
-Southeast Asia,Elder,Finance,"230, 155, 255","0, 0, 0",,,,
-Southeast Asia,Child,Tech,"0, 200, 255","255, 255, 255",,,,
-Southeast Asia,Teen,Tech,"0, 255, 200","255, 255, 255",,,,
-Southeast Asia,Adult,Tech,"0, 255, 128","0, 0, 0",,,,
-Southeast Asia,Elder,Tech,"0, 150, 255","0, 0, 0",,,,
-Southeast Asia,Child,Entertainment,"0, 0, 211","255, 255, 255",,,,
-Southeast Asia,Teen,Entertainment,"0, 0, 128","255, 255, 255",,,,
-Southeast Asia,Adult,Entertainment,"0, 0, 169","0, 0, 0",,,,
-Southeast Asia,Elder,Entertainment,"0, 0, 220","0, 0, 0",,,,
-Southeast Asia,Child,Sports,"30, 255, 255","255, 255, 255",,,,
-Southeast Asia,Teen,Sports,"25, 255, 255","255, 255, 255",,,,
-Southeast Asia,Adult,Sports,"22, 255, 255","0, 0, 0",,,,
-Southeast Asia,Elder,Sports,"25, 80, 255","0, 0, 0",,,,
-Southeast Asia,Child,Travel,"420, 255, 255","255, 255, 255",,,,
-Southeast Asia,Teen,Travel,"420, 170, 255","255, 255, 255",,,,
-Southeast Asia,Adult,Travel,"420, 220, 200","0, 0, 0",,,,
-Southeast Asia,Elder,Travel,"420, 100, 255","0, 0, 0",,,,
-Southeast Asia,Child,Masculinity,"0, 0, 255","255, 255, 255",,,,
-Southeast Asia,Teen,Masculinity,"0, 0, 240","255, 255, 255",,,,
-Southeast Asia,Adult,Masculinity,"0, 0, 220","0, 0, 0",,,,
-Southeast Asia,Elder,Masculinity,"0, 0, 250","0, 0, 0",,,,
-Southeast Asia,Child,Femininity,"240, 255, 255","255, 255, 255",,,,
-Southeast Asia,Teen,Femininity,"245, 255, 255","255, 255, 255",,,,
-Southeast Asia,Adult,Femininity,"245, 255, 200","0, 0, 0",,,,
-Southeast Asia,Elder,Femininity,"230, 155, 255","0, 0, 0",,,,
-Southeast Asia,Child,E-Commerce,"0, 200, 255","255, 255, 255",,,,
-Southeast Asia,Teen,E-Commerce,"0, 255, 200","255, 255, 255",,,,
-Southeast Asia,Adult,E-Commerce,"0, 255, 128","0, 0, 0",,,,
-Southeast Asia,Elder,E-Commerce,"0, 150, 255","0, 0, 0",,,,
-Southeast Asia,Child,Neutral,"0, 0, 51","255, 255, 255",,,,
-Southeast Asia,Teen,Neutral,"0, 0, 0","255, 255, 255",,,,
-Southeast Asia,Adult,Neutral,"0, 0, 21","0, 0, 0",,,,
-Southeast Asia,Elder,Neutral,"0, 0, 79","0, 0, 0",,,,
-South Asia,Child,Finance,"395, 255, 255","255, 255, 255",,,,
-South Asia,Teen,Finance,"390, 255, 255","255, 255, 255",,,,
-South Asia,Adult,Finance,"390, 155, 255","0, 0, 0",,,,
-South Asia,Elder,Finance,"390, 50, 255","0, 0, 0",,,,
-South Asia,Child,Tech,"375, 255, 255","255, 255, 255",,,,
-South Asia,Teen,Tech,"370, 255, 255","255, 255, 255",,,,
-South Asia,Adult,Tech,"370, 255, 200","0, 0, 0",,,,
-South Asia,Elder,Tech,"350, 255, 255","0, 0, 0",,,,
-South Asia,Child,Entertainment,"20, 255, 255","255, 255, 255",,,,
-South Asia,Teen,Entertainment,"18, 255, 255","255, 255, 255",,,,
-South Asia,Adult,Entertainment,"15, 255, 200","0, 0, 0",,,,
-South Asia,Elder,Entertainment,"15, 100, 255","0, 0, 0",,,,
-South Asia,Child,Sports,"20, 255, 255","255, 255, 255",,,,
-South Asia,Teen,Sports,"18, 255, 255","255, 255, 255",,,,
-South Asia,Adult,Sports,"15, 255, 200","0, 0, 0",,,,
-South Asia,Elder,Sports,"15, 100, 255","0, 0, 0",,,,
-South Asia,Child,Travel,"0, 0, 255","255, 255, 255",,,,
-South Asia,Teen,Travel,"0, 0, 240","255, 255, 255",,,,
-South Asia,Adult,Travel,"0, 0, 220","0, 0, 0",,,,
-South Asia,Elder,Travel,"0, 0, 250","0, 0, 0",,,,
-South Asia,Child,Masculinity,"375, 255, 255","255, 255, 255",,,,
-South Asia,Teen,Masculinity,"370, 255, 255","255, 255, 255",,,,
-South Asia,Adult,Masculinity,"370, 255, 200","0, 0, 0",,,,
-South Asia,Elder,Masculinity,"350, 255, 255","0, 0, 0",,,,
-South Asia,Child,Femininity,"0, 0, 211","255, 255, 255",,,,
-South Asia,Teen,Femininity,"0, 0, 128","255, 255, 255",,,,
-South Asia,Adult,Femininity,"0, 0, 169","0, 0, 0",,,,
-South Asia,Elder,Femininity,"0, 0, 220","0, 0, 0",,,,
-South Asia,Child,E-Commerce,"375, 255, 255","255, 255, 255",,,,
-South Asia,Teen,E-Commerce,"370, 255, 255","255, 255, 255",,,,
-South Asia,Adult,E-Commerce,"370, 255, 200","0, 0, 0",,,,
-South Asia,Elder,E-Commerce,"350, 255, 255","0, 0, 0",,,,
-South Asia,Child,Neutral,"0, 0, 51","255, 255, 255",,,,
-South Asia,Teen,Neutral,"0, 0, 0","255, 255, 255",,,,
-South Asia,Adult,Neutral,"0, 0, 21","0, 0, 0",,,,
-South Asia,Elder,Neutral,"0, 0, 79","0, 0, 0",,,,
-Middle East,Child,Finance,"0, 0, 255","255, 255, 255",,,,
-Middle East,Teen,Finance,"0, 0, 240","255, 255, 255",,,,
-Middle East,Adult,Finance,"0, 0, 220","0, 0, 0",,,,
-Middle East,Elder,Finance,"0, 0, 250","0, 0, 0",,,,
-Middle East,Child,Tech,"375, 255, 255","255, 255, 255",,,,
-Middle East,Teen,Tech,"370, 255, 255","255, 255, 255",,,,
-Middle East,Adult,Tech,"370, 255, 200","0, 0, 0",,,,
-Middle East,Elder,Tech,"350, 255, 255","0, 0, 0",,,,
-Middle East,Child,Entertainment,"30, 255, 255","255, 255, 255",,,,
-Middle East,Teen,Entertainment,"25, 255, 255","255, 255, 255",,,,
-Middle East,Adult,Entertainment,"22, 255, 255","0, 0, 0",,,,
-Middle East,Elder,Entertainment,"25, 80, 255","0, 0, 0",,,,
-Middle East,Child,Sports,"0, 200, 255","255, 255, 255",,,,
-Middle East,Teen,Sports,"0, 255, 200","255, 255, 255",,,,
-Middle East,Adult,Sports,"0, 255, 128","0, 0, 0",,,,
-Middle East,Elder,Sports,"0, 150, 255","0, 0, 0",,,,
-Middle East,Child,Travel,"0, 0, 51","255, 255, 255",,,,
-Middle East,Teen,Travel,"0, 0, 0","255, 255, 255",,,,
-Middle East,Adult,Travel,"0, 0, 21","0, 0, 0",,,,
-Middle East,Elder,Travel,"0, 0, 79","0, 0, 0",,,,
-Middle East,Child,Masculinity,"240, 255, 255","255, 255, 255",,,,
-Middle East,Teen,Masculinity,"245, 255, 255","255, 255, 255",,,,
-Middle East,Adult,Masculinity,"245, 255, 200","0, 0, 0",,,,
-Middle East,Elder,Masculinity,"230, 155, 255","0, 0, 0",,,,
-Middle East,Child,Femininity,"0, 0, 255","255, 255, 255",,,,
-Middle East,Teen,Femininity,"0, 0, 240","255, 255, 255",,,,
-Middle East,Adult,Femininity,"0, 0, 220","0, 0, 0",,,,
-Middle East,Elder,Femininity,"0, 0, 250","0, 0, 0",,,,
-Middle East,Child,E-Commerce,"0, 0, 51","255, 255, 255",,,,
-Middle East,Teen,E-Commerce,"0, 0, 0","255, 255, 255",,,,
-Middle East,Adult,E-Commerce,"0, 0, 21","0, 0, 0",,,,
-Middle East,Elder,E-Commerce,"0, 0, 79","0, 0, 0",,,,
-Middle East,Child,Neutral,"20, 255, 255","255, 255, 255",,,,
-Middle East,Teen,Neutral,"18, 255, 255","255, 255, 255",,,,
-Middle East,Adult,Neutral,"15, 255, 200","0, 0, 0",,,,
-Middle East,Elder,Neutral,"15, 100, 255","0, 0, 0",,,,
-Western (Europe + North America),Child,Finance,"20, 255, 255","255, 255, 255",,,,
-Western (Europe + North America),Teen,Finance,"18, 255, 255","255, 255, 255",,,,
-Western (Europe + North America),Adult,Finance,"15, 255, 200","0, 0, 0",,,,
-Western (Europe + North America),Elder,Finance,"15, 100, 255","0, 0, 0",,,,
-Western (Europe + North America),Child,Tech,"30, 255, 255","255, 255, 255",,,,
-Western (Europe + North America),Teen,Tech,"25, 255, 255","255, 255, 255",,,,
-Western (Europe + North America),Adult,Tech,"22, 255, 255","0, 0, 0",,,,
-Western (Europe + North America),Elder,Tech,"25, 80, 255","0, 0, 0",,,,
-Western (Europe + North America),Child,Entertainment,"0, 0, 211","255, 255, 255",,,,
-Western (Europe + North America),Teen,Entertainment,"0, 0, 128","255, 255, 255",,,,
-Western (Europe + North America),Adult,Entertainment,"0, 0, 169","0, 0, 0",,,,
-Western (Europe + North America),Elder,Entertainment,"0, 0, 220","0, 0, 0",,,,
-Western (Europe + North America),Child,Sports,"30, 255, 255","255, 255, 255",,,,
-Western (Europe + North America),Teen,Sports,"25, 255, 255","255, 255, 255",,,,
-Western (Europe + North America),Adult,Sports,"22, 255, 255","0, 0, 0",,,,
-Western (Europe + North America),Elder,Sports,"25, 80, 255","0, 0, 0",,,,
-Western (Europe + North America),Child,Travel,"420, 255, 255","255, 255, 255",,,,
-Western (Europe + North America),Teen,Travel,"420, 170, 255","255, 255, 255",,,,
-Western (Europe + North America),Adult,Travel,"420, 220, 200","0, 0, 0",,,,
-Western (Europe + North America),Elder,Travel,"420, 100, 255","0, 0, 0",,,,
-Western (Europe + North America),Child,Masculinity,"0, 0, 255","255, 255, 255",,,,
-Western (Europe + North America),Teen,Masculinity,"0, 0, 240","255, 255, 255",,,,
-Western (Europe + North America),Adult,Masculinity,"0, 0, 220","0, 0, 0",,,,
-Western (Europe + North America),Elder,Masculinity,"0, 0, 250","0, 0, 0",,,,
-Western (Europe + North America),Child,Femininity,"240, 255, 255","255, 255, 255",,,,
-Western (Europe + North America),Teen,Femininity,"245, 255, 255","255, 255, 255",,,,
-Western (Europe + North America),Adult,Femininity,"245, 255, 200","0, 0, 0",,,,
-Western (Europe + North America),Elder,Femininity,"230, 155, 255","0, 0, 0",,,,
-Western (Europe + North America),Child,E-Commerce,"0, 0, 51","255, 255, 255",,,,
-Western (Europe + North America),Teen,E-Commerce,"0, 0, 0","255, 255, 255",,,,
-Western (Europe + North America),Adult,E-Commerce,"0, 0, 21","0, 0, 0",,,,
-Western (Europe + North America),Elder,E-Commerce,"0, 0, 79","0, 0, 0",,,,
-Western (Europe + North America),Child,Neutral,"0, 0, 51","255, 255, 255",,,,
-Western (Europe + North America),Teen,Neutral,"0, 0, 0","255, 255, 255",,,,
-Western (Europe + North America),Adult,Neutral,"0, 0, 21","0, 0, 0",,,,
-Western (Europe + North America),Elder,Neutral,"0, 0, 79","0, 0, 0",,,,
-Oceania,Child,Finance,"0, 200, 255","255, 255, 255",,,,
-Oceania,Teen,Finance,"0, 255, 200","255, 255, 255",,,,
-Oceania,Adult,Finance,"0, 255, 128","0, 0, 0",,,,
-Oceania,Elder,Finance,"0, 150, 255","0, 0, 0",,,,
-Oceania,Child,Tech,"20, 255, 255","255, 255, 255",,,,
-Oceania,Teen,Tech,"18, 255, 255","255, 255, 255",,,,
-Oceania,Adult,Tech,"15, 255, 200","0, 0, 0",,,,
-Oceania,Elder,Tech,"15, 100, 255","0, 0, 0",,,,
-Oceania,Child,Entertainment,"420, 255, 255","255, 255, 255",,,,
-Oceania,Teen,Entertainment,"420, 170, 255","255, 255, 255",,,,
-Oceania,Adult,Entertainment,"420, 220, 200","0, 0, 0",,,,
-Oceania,Elder,Entertainment,"420, 100, 255","0, 0, 0",,,,
-Oceania,Child,Sports,"20, 255, 255","255, 255, 255",,,,
-Oceania,Teen,Sports,"18, 255, 255","255, 255, 255",,,,
-Oceania,Adult,Sports,"15, 255, 200","0, 0, 0",,,,
-Oceania,Elder,Sports,"15, 100, 255","0, 0, 0",,,,
-Oceania,Child,Travel,"395, 255, 255","255, 255, 255",,,,
-Oceania,Teen,Travel,"390, 255, 255","255, 255, 255",,,,
-Oceania,Adult,Travel,"390, 155, 255","0, 0, 0",,,,
-Oceania,Elder,Travel,"390, 50, 255","0, 0, 0",,,,
-Oceania,Child,Masculinity,"375, 255, 255","255, 255, 255",,,,
-Oceania,Teen,Masculinity,"370, 255, 255","255, 255, 255",,,,
-Oceania,Adult,Masculinity,"370, 255, 200","0, 0, 0",,,,
-Oceania,Elder,Masculinity,"350, 255, 255","0, 0, 0",,,,
-Oceania,Child,Femininity,"0, 0, 51","255, 255, 255",,,,
-Oceania,Teen,Femininity,"0, 0, 0","255, 255, 255",,,,
-Oceania,Adult,Femininity,"0, 0, 21","0, 0, 0",,,,
-Oceania,Elder,Femininity,"0, 0, 79","0, 0, 0",,,,
-Oceania,Child,E-Commerce,"0, 0, 255","255, 255, 255",,,,
-Oceania,Teen,E-Commerce,"0, 0, 240","255, 255, 255",,,,
-Oceania,Adult,E-Commerce,"0, 0, 220","0, 0, 0",,,,
-Oceania,Elder,E-Commerce,"0, 0, 250","0, 0, 0",,,,
-Oceania,Child,Neutral,"30, 255, 255","255, 255, 255",,,,
-Oceania,Teen,Neutral,"25, 255, 255","255, 255, 255",,,,
-Oceania,Adult,Neutral,"22, 255, 255","0, 0, 0",,,,
-Oceania,Elder,Neutral,"25, 80, 255","0, 0, 0",,,,
-South America,Child,Finance,"0, 0, 211","255, 255, 255",,,,
-South America,Teen,Finance,"0, 0, 128","255, 255, 255",,,,
-South America,Adult,Finance,"0, 0, 169","0, 0, 0",,,,
-South America,Elder,Finance,"0, 0, 220","0, 0, 0",,,,
-South America,Child,Tech,"420, 255, 255","255, 255, 255",,,,
-South America,Teen,Tech,"420, 170, 255","255, 255, 255",,,,
-South America,Adult,Tech,"420, 220, 200","0, 0, 0",,,,
-South America,Elder,Tech,"420, 100, 255","0, 0, 0",,,,
-South America,Child,Entertainment,"0, 0, 255","255, 255, 255",,,,
-South America,Teen,Entertainment,"0, 0, 240","255, 255, 255",,,,
-South America,Adult,Entertainment,"0, 0, 220","0, 0, 0",,,,
-South America,Elder,Entertainment,"0, 0, 250","0, 0, 0",,,,
-South America,Child,Sports,"240, 255, 255","255, 255, 255",,,,
-South America,Teen,Sports,"245, 255, 255","255, 255, 255",,,,
-South America,Adult,Sports,"245, 255, 200","0, 0, 0",,,,
-South America,Elder,Sports,"230, 155, 255","0, 0, 0",,,,
-South America,Child,Travel,"0, 200, 255","255, 255, 255",,,,
-South America,Teen,Travel,"0, 255, 200","255, 255, 255",,,,
-South America,Adult,Travel,"0, 255, 128","0, 0, 0",,,,
-South America,Elder,Travel,"0, 150, 255","0, 0, 0",,,,
-South America,Child,Masculinity,"30, 255, 255","255, 255, 255",,,,
-South America,Teen,Masculinity,"25, 255, 255","255, 255, 255",,,,
-South America,Adult,Masculinity,"22, 255, 255","0, 0, 0",,,,
-South America,Elder,Masculinity,"25, 80, 255","0, 0, 0",,,,
-South America,Child,Femininity,"30, 255, 255","255, 255, 255",,,,
-South America,Teen,Femininity,"25, 255, 255","255, 255, 255",,,,
-South America,Adult,Femininity,"22, 255, 255","0, 0, 0",,,,
-South America,Elder,Femininity,"25, 80, 255","0, 0, 0",,,,
-South America,Child,E-Commerce,"420, 255, 255","255, 255, 255",,,,
-South America,Teen,E-Commerce,"420, 170, 255","255, 255, 255",,,,
-South America,Adult,E-Commerce,"420, 220, 200","0, 0, 0",,,,
-South America,Elder,E-Commerce,"420, 100, 255","0, 0, 0",,,,
-South America,Child,Neutral,"395, 255, 255","255, 255, 255",,,,
-South America,Teen,Neutral,"390, 255, 255","255, 255, 255",,,,
-South America,Adult,Neutral,"390, 155, 255","0, 0, 0",,,,
-South America,Elder,Neutral,"390, 50, 255","0, 0, 0",,,,
-Africa,Child,Finance,"20, 255, 255","255, 255, 255",,,,
-Africa,Teen,Finance,"18, 255, 255","255, 255, 255",,,,
-Africa,Adult,Finance,"15, 255, 200","0, 0, 0",,,,
-Africa,Elder,Finance,"15, 100, 255","0, 0, 0",,,,
-Africa,Child,Tech,"0, 0, 51","255, 255, 255",,,,
-Africa,Teen,Tech,"0, 0, 0","255, 255, 255",,,,
-Africa,Adult,Tech,"0, 0, 21","0, 0, 0",,,,
-Africa,Elder,Tech,"0, 0, 79","0, 0, 0",,,,
-Africa,Child,Entertainment,"395, 255, 255","255, 255, 255",,,,
-Africa,Teen,Entertainment,"390, 255, 255","255, 255, 255",,,,
-Africa,Adult,Entertainment,"390, 155, 255","0, 0, 0",,,,
-Africa,Elder,Entertainment,"390, 50, 255","0, 0, 0",,,,
-Africa,Child,Sports,"30, 255, 255","255, 255, 255",,,,
-Africa,Teen,Sports,"25, 255, 255","255, 255, 255",,,,
-Africa,Adult,Sports,"22, 255, 255","0, 0, 0",,,,
-Africa,Elder,Sports,"25, 80, 255","0, 0, 0",,,,
-Africa,Child,Travel,"30, 255, 255","255, 255, 255",,,,
-Africa,Teen,Travel,"25, 255, 255","255, 255, 255",,,,
-Africa,Adult,Travel,"22, 255, 255","0, 0, 0",,,,
-Africa,Elder,Travel,"25, 80, 255","0, 0, 0",,,,
-Africa,Child,Masculinity,"240, 255, 255","255, 255, 255",,,,
-Africa,Teen,Masculinity,"245, 255, 255","255, 255, 255",,,,
-Africa,Adult,Masculinity,"245, 255, 200","0, 0, 0",,,,
-Africa,Elder,Masculinity,"230, 155, 255","0, 0, 0",,,,
-Africa,Child,Femininity,"240, 255, 255","255, 255, 255",,,,
-Africa,Teen,Femininity,"245, 255, 255","255, 255, 255",,,,
-Africa,Adult,Femininity,"245, 255, 200","0, 0, 0",,,,
-Africa,Elder,Femininity,"230, 155, 255","0, 0, 0",,,,
-Africa,Child,E-Commerce,"0, 0, 51","255, 255, 255",,,,
-Africa,Teen,E-Commerce,"0, 0, 0","255, 255, 255",,,,
-Africa,Adult,E-Commerce,"0, 0, 21","0, 0, 0",,,,
-Africa,Elder,E-Commerce,"0, 0, 79","0, 0, 0",,,,
-Africa,Child,Neutral,"375, 255, 255","255, 255, 255",,,,
-Africa,Teen,Neutral,"370, 255, 255","255, 255, 255",,,,
-Africa,Adult,Neutral,"370, 255, 200","0, 0, 0",,,,
-Africa,Elder,Neutral,"350, 255, 255","0, 0, 0",,,,
-Africa,All,E-Commerce,"0, 0, 0","255, 255, 255",,,,
-Africa,All,Entertainment,"390, 255, 255","255, 255, 255",,,,
-Africa,All,Femininity,"245, 255, 255","255, 255, 255",,,,
-Africa,All,Finance,"18, 255, 255","255, 255, 255",,,,
-Africa,All,Masculinity,"245, 255, 255","255, 255, 255",,,,
-Africa,All,Neutral,"370, 255, 255","255, 255, 255",,,,
-Africa,All,Sports,"25, 255, 255","255, 255, 255",,,,
-Africa,All,Tech,"0, 0, 0","255, 255, 255",,,,
-Africa,All,Travel,"25, 255, 255","255, 255, 255",,,,
-East Asia,All,E-Commerce,"18, 255, 255","255, 255, 255",,,,
-East Asia,All,Entertainment,"0, 0, 240","255, 255, 255",,,,
-East Asia,All,Femininity,"370, 255, 255","255, 255, 255",,,,
-East Asia,All,Finance,"0, 255, 200","255, 255, 255",,,,
-East Asia,All,Masculinity,"25, 255, 255","255, 255, 255",,,,
-East Asia,All,Neutral,"390, 255, 255","255, 255, 255",,,,
-East Asia,All,Sports,"420, 170, 255","255, 255, 255",,,,
-East Asia,All,Tech,"18, 255, 255","255, 255, 255",,,,
-East Asia,All,Travel,"0, 255, 200","255, 255, 255",,,,
-Middle East,All,E-Commerce,"0, 0, 0","255, 255, 255",,,,
-Middle East,All,Entertainment,"25, 255, 255","255, 255, 255",,,,
-Middle East,All,Femininity,"0, 0, 240","255, 255, 255",,,,
-Middle East,All,Finance,"0, 0, 240","255, 255, 255",,,,
-Middle East,All,Masculinity,"245, 255, 255","255, 255, 255",,,,
-Middle East,All,Neutral,"18, 255, 255","255, 255, 255",,,,
-Middle East,All,Sports,"0, 255, 200","255, 255, 255",,,,
-Middle East,All,Tech,"370, 255, 255","255, 255, 255",,,,
-Middle East,All,Travel,"0, 0, 0","255, 255, 255",,,,
-Oceania,All,E-Commerce,"0, 0, 240","255, 255, 255",,,,
-Oceania,All,Entertainment,"420, 170, 255","255, 255, 255",,,,
-Oceania,All,Femininity,"0, 0, 0","255, 255, 255",,,,
-Oceania,All,Finance,"0, 255, 200","255, 255, 255",,,,
-Oceania,All,Masculinity,"370, 255, 255","255, 255, 255",,,,
-Oceania,All,Neutral,"25, 255, 255","255, 255, 255",,,,
-Oceania,All,Sports,"18, 255, 255","255, 255, 255",,,,
-Oceania,All,Tech,"18, 255, 255","255, 255, 255",,,,
-Oceania,All,Travel,"390, 255, 255","255, 255, 255",,,,
-South America,All,E-Commerce,"420, 170, 255","255, 255, 255",,,,
-South America,All,Entertainment,"0, 0, 240","255, 255, 255",,,,
-South America,All,Femininity,"25, 255, 255","255, 255, 255",,,,
-South America,All,Finance,"0, 0, 128","255, 255, 255",,,,
-South America,All,Masculinity,"25, 255, 255","255, 255, 255",,,,
-South America,All,Neutral,"390, 255, 255","255, 255, 255",,,,
-South America,All,Sports,"245, 255, 255","255, 255, 255",,,,
-South America,All,Tech,"420, 170, 255","255, 255, 255",,,,
-South America,All,Travel,"0, 255, 200","255, 255, 255",,,,
-South Asia,All,E-Commerce,"370, 255, 255","255, 255, 255",,,,
-South Asia,All,Entertainment,"18, 255, 255","255, 255, 255",,,,
-South Asia,All,Femininity,"0, 0, 128","255, 255, 255",,,,
-South Asia,All,Finance,"390, 255, 255","255, 255, 255",,,,
-South Asia,All,Masculinity,"370, 255, 255","255, 255, 255",,,,
-South Asia,All,Neutral,"0, 0, 0","255, 255, 255",,,,
-South Asia,All,Sports,"18, 255, 255","255, 255, 255",,,,
-South Asia,All,Tech,"370, 255, 255","255, 255, 255",,,,
-South Asia,All,Travel,"0, 0, 240","255, 255, 255",,,,
-Southeast Asia,All,E-Commerce,"0, 255, 200","255, 255, 255",,,,
-Southeast Asia,All,Entertainment,"0, 0, 128","255, 255, 255",,,,
-Southeast Asia,All,Femininity,"245, 255, 255","255, 255, 255",,,,
-Southeast Asia,All,Finance,"245, 255, 255","255, 255, 255",,,,
-Southeast Asia,All,Masculinity,"0, 0, 240","255, 255, 255",,,,
-Southeast Asia,All,Neutral,"0, 0, 0","255, 255, 255",,,,
-Southeast Asia,All,Sports,"25, 255, 255","255, 255, 255",,,,
-Southeast Asia,All,Tech,"0, 255, 200","255, 255, 255",,,,
-Southeast Asia,All,Travel,"420, 170, 255","255, 255, 255",,,,
-Western (Europe + North America),All,E-Commerce,"0, 0, 0","255, 255, 255",,,,
-Western (Europe + North America),All,Entertainment,"0, 0, 128","255, 255, 255",,,,
-Western (Europe + North America),All,Femininity,"245, 255, 255","255, 255, 255",,,,
-Western (Europe + North America),All,Finance,"18, 255, 255","255, 255, 255",,,,
-Western (Europe + North America),All,Masculinity,"0, 0, 240","255, 255, 255",,,,
-Western (Europe + North America),All,Neutral,"0, 0, 0","255, 255, 255",,,,
-Western (Europe + North America),All,Sports,"25, 255, 255","255, 255, 255",,,,
-Western (Europe + North America),All,Tech,"25, 255, 255","255, 255, 255",,,,
-Western (Europe + North America),All,Travel,"420, 170, 255","255, 255, 255",,,,
-All,Adult,E-Commerce,"0, 0, 21","0, 0, 0",,,,
-All,Child,E-Commerce,"0, 0, 51","255, 255, 255",,,,
-All,Elder,E-Commerce,"0, 0, 79","0, 0, 0",,,,
-All,Teen,E-Commerce,"0, 0, 0","255, 255, 255",,,,
-All,Adult,Entertainment,"0, 0, 169","0, 0, 0",,,,
-All,Child,Entertainment,"0, 0, 211","255, 255, 255",,,,
-All,Elder,Entertainment,"0, 0, 220","0, 0, 0",,,,
-All,Teen,Entertainment,"0, 0, 128","255, 255, 255",,,,
-All,Adult,Femininity,"0, 0, 21","0, 0, 0",,,,
-All,Child,Femininity,"0, 0, 51","255, 255, 255",,,,
-All,Elder,Femininity,"0, 0, 79","0, 0, 0",,,,
-All,Teen,Femininity,"0, 0, 0","255, 255, 255",,,,
-All,Adult,Finance,"245, 255, 200","0, 0, 0",,,,
-All,Child,Finance,"240, 255, 255","255, 255, 255",,,,
-All,Elder,Finance,"230, 155, 255","0, 0, 0",,,,
-All,Teen,Finance,"245, 255, 255","255, 255, 255",,,,
-All,Adult,Masculinity,"370, 255, 200","0, 0, 0",,,,
-All,Child,Masculinity,"375, 255, 255","255, 255, 255",,,,
-All,Elder,Masculinity,"350, 255, 255","0, 0, 0",,,,
-All,Teen,Masculinity,"370, 255, 255","255, 255, 255",,,,
-All,Adult,Neutral,"0, 0, 21","0, 0, 0",,,,
-All,Child,Neutral,"0, 0, 51","255, 255, 255",,,,
-All,Elder,Neutral,"0, 0, 79","0, 0, 0",,,,
-All,Teen,Neutral,"0, 0, 0","255, 255, 255",,,,
-All,Adult,Sports,"245, 255, 200","0, 0, 0",,,,
-All,Child,Sports,"240, 255, 255","255, 255, 255",,,,
-All,Elder,Sports,"230, 155, 255","0, 0, 0",,,,
-All,Teen,Sports,"245, 255, 255","255, 255, 255",,,,
-All,Adult,Tech,"0, 0, 21","0, 0, 0",,,,
-All,Child,Tech,"0, 0, 51","255, 255, 255",,,,
-All,Elder,Tech,"0, 0, 79","0, 0, 0",,,,
-All,Teen,Tech,"0, 0, 0","255, 255, 255",,,,
-All,Adult,Travel,"0, 0, 21","0, 0, 0",,,,
-All,Child,Travel,"0, 0, 51","255, 255, 255",,,,
-All,Elder,Travel,"0, 0, 79","0, 0, 0",,,,
-All,Teen,Travel,"0, 0, 0","255, 255, 255",,,,
-All,All,E-Commerce,"0, 0, 0","255, 255, 255",,,,
-All,All,Entertainment,"0, 0, 128","255, 255, 255",,,,
-All,All,Femininity,"0, 0, 0","255, 255, 255",,,,
-All,All,Finance,"245, 255, 255","255, 255, 255",,,,
-All,All,Masculinity,"370, 255, 255","255, 255, 255",,,,
-All,All,Neutral,"0, 0, 0","255, 255, 255",,,,
-All,All,Sports,"245, 255, 255","255, 255, 255",,,,
-All,All,Tech,"0, 0, 0","255, 255, 255",,,,
-All,All,Travel,"0, 0, 0","255, 255, 255",,,,
+Region,Age,Product,Color Preference,Text Color
+East Asia,Child,Finance,"0, 200, 255","255, 255, 255"
+East Asia,Teen,Finance,"0, 255, 200","255, 255, 255"
+East Asia,Adult,Finance,"0, 255, 128","0, 0, 0"
+East Asia,Elder,Finance,"0, 150, 255","0, 0, 0"
+East Asia,Child,Tech,"20, 255, 255","255, 255, 255"
+East Asia,Teen,Tech,"18, 255, 255","255, 255, 255"
+East Asia,Adult,Tech,"15, 255, 200","0, 0, 0"
+East Asia,Elder,Tech,"15, 100, 255","0, 0, 0"
+East Asia,Child,Entertainment,"0, 0, 255","255, 255, 255"
+East Asia,Teen,Entertainment,"0, 0, 240","255, 255, 255"
+East Asia,Adult,Entertainment,"0, 0, 220","0, 0, 0"
+East Asia,Elder,Entertainment,"0, 0, 250","0, 0, 0"
+East Asia,Child,Sports,"420, 255, 255","255, 255, 255"
+East Asia,Teen,Sports,"420, 170, 255","255, 255, 255"
+East Asia,Adult,Sports,"420, 220, 200","0, 0, 0"
+East Asia,Elder,Sports,"420, 100, 255","0, 0, 0"
+East Asia,Child,Travel,"0, 200, 255","255, 255, 255"
+East Asia,Teen,Travel,"0, 255, 200","255, 255, 255"
+East Asia,Adult,Travel,"0, 255, 128","0, 0, 0"
+East Asia,Elder,Travel,"0, 150, 255","0, 0, 0"
+East Asia,Child,Masculinity,"30, 255, 255","255, 255, 255"
+East Asia,Teen,Masculinity,"25, 255, 255","255, 255, 255"
+East Asia,Adult,Masculinity,"22, 255, 255","0, 0, 0"
+East Asia,Elder,Masculinity,"25, 80, 255","0, 0, 0"
+East Asia,Child,Femininity,"375, 255, 255","255, 255, 255"
+East Asia,Teen,Femininity,"370, 255, 255","255, 255, 255"
+East Asia,Adult,Femininity,"370, 255, 200","0, 0, 0"
+East Asia,Elder,Femininity,"350, 255, 255","0, 0, 0"
+East Asia,Child,E-Commerce,"20, 255, 255","255, 255, 255"
+East Asia,Teen,E-Commerce,"18, 255, 255","255, 255, 255"
+East Asia,Adult,E-Commerce,"15, 255, 200","0, 0, 0"
+East Asia,Elder,E-Commerce,"15, 100, 255","0, 0, 0"
+East Asia,Child,Neutral,"395, 255, 255","255, 255, 255"
+East Asia,Teen,Neutral,"390, 255, 255","255, 255, 255"
+East Asia,Adult,Neutral,"390, 155, 255","0, 0, 0"
+East Asia,Elder,Neutral,"390, 50, 255","0, 0, 0"
+Southeast Asia,Child,Finance,"240, 255, 255","255, 255, 255"
+Southeast Asia,Teen,Finance,"245, 255, 255","255, 255, 255"
+Southeast Asia,Adult,Finance,"245, 255, 200","0, 0, 0"
+Southeast Asia,Elder,Finance,"230, 155, 255","0, 0, 0"
+Southeast Asia,Child,Tech,"0, 200, 255","255, 255, 255"
+Southeast Asia,Teen,Tech,"0, 255, 200","255, 255, 255"
+Southeast Asia,Adult,Tech,"0, 255, 128","0, 0, 0"
+Southeast Asia,Elder,Tech,"0, 150, 255","0, 0, 0"
+Southeast Asia,Child,Entertainment,"0, 0, 211","255, 255, 255"
+Southeast Asia,Teen,Entertainment,"0, 0, 128","255, 255, 255"
+Southeast Asia,Adult,Entertainment,"0, 0, 169","0, 0, 0"
+Southeast Asia,Elder,Entertainment,"0, 0, 220","0, 0, 0"
+Southeast Asia,Child,Sports,"30, 255, 255","255, 255, 255"
+Southeast Asia,Teen,Sports,"25, 255, 255","255, 255, 255"
+Southeast Asia,Adult,Sports,"22, 255, 255","0, 0, 0"
+Southeast Asia,Elder,Sports,"25, 80, 255","0, 0, 0"
+Southeast Asia,Child,Travel,"420, 255, 255","255, 255, 255"
+Southeast Asia,Teen,Travel,"420, 170, 255","255, 255, 255"
+Southeast Asia,Adult,Travel,"420, 220, 200","0, 0, 0"
+Southeast Asia,Elder,Travel,"420, 100, 255","0, 0, 0"
+Southeast Asia,Child,Masculinity,"0, 0, 255","255, 255, 255"
+Southeast Asia,Teen,Masculinity,"0, 0, 240","255, 255, 255"
+Southeast Asia,Adult,Masculinity,"0, 0, 220","0, 0, 0"
+Southeast Asia,Elder,Masculinity,"0, 0, 250","0, 0, 0"
+Southeast Asia,Child,Femininity,"240, 255, 255","255, 255, 255"
+Southeast Asia,Teen,Femininity,"245, 255, 255","255, 255, 255"
+Southeast Asia,Adult,Femininity,"245, 255, 200","0, 0, 0"
+Southeast Asia,Elder,Femininity,"230, 155, 255","0, 0, 0"
+Southeast Asia,Child,E-Commerce,"0, 200, 255","255, 255, 255"
+Southeast Asia,Teen,E-Commerce,"0, 255, 200","255, 255, 255"
+Southeast Asia,Adult,E-Commerce,"0, 255, 128","0, 0, 0"
+Southeast Asia,Elder,E-Commerce,"0, 150, 255","0, 0, 0"
+Southeast Asia,Child,Neutral,"0, 0, 51","255, 255, 255"
+Southeast Asia,Teen,Neutral,"0, 0, 0","255, 255, 255"
+Southeast Asia,Adult,Neutral,"0, 0, 21","0, 0, 0"
+Southeast Asia,Elder,Neutral,"0, 0, 79","0, 0, 0"
+South Asia,Child,Finance,"395, 255, 255","255, 255, 255"
+South Asia,Teen,Finance,"390, 255, 255","255, 255, 255"
+South Asia,Adult,Finance,"390, 155, 255","0, 0, 0"
+South Asia,Elder,Finance,"390, 50, 255","0, 0, 0"
+South Asia,Child,Tech,"375, 255, 255","255, 255, 255"
+South Asia,Teen,Tech,"370, 255, 255","255, 255, 255"
+South Asia,Adult,Tech,"370, 255, 200","0, 0, 0"
+South Asia,Elder,Tech,"350, 255, 255","0, 0, 0"
+South Asia,Child,Entertainment,"20, 255, 255","255, 255, 255"
+South Asia,Teen,Entertainment,"18, 255, 255","255, 255, 255"
+South Asia,Adult,Entertainment,"15, 255, 200","0, 0, 0"
+South Asia,Elder,Entertainment,"15, 100, 255","0, 0, 0"
+South Asia,Child,Sports,"20, 255, 255","255, 255, 255"
+South Asia,Teen,Sports,"18, 255, 255","255, 255, 255"
+South Asia,Adult,Sports,"15, 255, 200","0, 0, 0"
+South Asia,Elder,Sports,"15, 100, 255","0, 0, 0"
+South Asia,Child,Travel,"0, 0, 255","255, 255, 255"
+South Asia,Teen,Travel,"0, 0, 240","255, 255, 255"
+South Asia,Adult,Travel,"0, 0, 220","0, 0, 0"
+South Asia,Elder,Travel,"0, 0, 250","0, 0, 0"
+South Asia,Child,Masculinity,"375, 255, 255","255, 255, 255"
+South Asia,Teen,Masculinity,"370, 255, 255","255, 255, 255"
+South Asia,Adult,Masculinity,"370, 255, 200","0, 0, 0"
+South Asia,Elder,Masculinity,"350, 255, 255","0, 0, 0"
+South Asia,Child,Femininity,"0, 0, 211","255, 255, 255"
+South Asia,Teen,Femininity,"0, 0, 128","255, 255, 255"
+South Asia,Adult,Femininity,"0, 0, 169","0, 0, 0"
+South Asia,Elder,Femininity,"0, 0, 220","0, 0, 0"
+South Asia,Child,E-Commerce,"375, 255, 255","255, 255, 255"
+South Asia,Teen,E-Commerce,"370, 255, 255","255, 255, 255"
+South Asia,Adult,E-Commerce,"370, 255, 200","0, 0, 0"
+South Asia,Elder,E-Commerce,"350, 255, 255","0, 0, 0"
+South Asia,Child,Neutral,"0, 0, 51","255, 255, 255"
+South Asia,Teen,Neutral,"0, 0, 0","255, 255, 255"
+South Asia,Adult,Neutral,"0, 0, 21","0, 0, 0"
+South Asia,Elder,Neutral,"0, 0, 79","0, 0, 0"
+Middle East,Child,Finance,"0, 0, 255","255, 255, 255"
+Middle East,Teen,Finance,"0, 0, 240","255, 255, 255"
+Middle East,Adult,Finance,"0, 0, 220","0, 0, 0"
+Middle East,Elder,Finance,"0, 0, 250","0, 0, 0"
+Middle East,Child,Tech,"375, 255, 255","255, 255, 255"
+Middle East,Teen,Tech,"370, 255, 255","255, 255, 255"
+Middle East,Adult,Tech,"370, 255, 200","0, 0, 0"
+Middle East,Elder,Tech,"350, 255, 255","0, 0, 0"
+Middle East,Child,Entertainment,"30, 255, 255","255, 255, 255"
+Middle East,Teen,Entertainment,"25, 255, 255","255, 255, 255"
+Middle East,Adult,Entertainment,"22, 255, 255","0, 0, 0"
+Middle East,Elder,Entertainment,"25, 80, 255","0, 0, 0"
+Middle East,Child,Sports,"0, 200, 255","255, 255, 255"
+Middle East,Teen,Sports,"0, 255, 200","255, 255, 255"
+Middle East,Adult,Sports,"0, 255, 128","0, 0, 0"
+Middle East,Elder,Sports,"0, 150, 255","0, 0, 0"
+Middle East,Child,Travel,"0, 0, 51","255, 255, 255"
+Middle East,Teen,Travel,"0, 0, 0","255, 255, 255"
+Middle East,Adult,Travel,"0, 0, 21","0, 0, 0"
+Middle East,Elder,Travel,"0, 0, 79","0, 0, 0"
+Middle East,Child,Masculinity,"240, 255, 255","255, 255, 255"
+Middle East,Teen,Masculinity,"245, 255, 255","255, 255, 255"
+Middle East,Adult,Masculinity,"245, 255, 200","0, 0, 0"
+Middle East,Elder,Masculinity,"230, 155, 255","0, 0, 0"
+Middle East,Child,Femininity,"0, 0, 255","255, 255, 255"
+Middle East,Teen,Femininity,"0, 0, 240","255, 255, 255"
+Middle East,Adult,Femininity,"0, 0, 220","0, 0, 0"
+Middle East,Elder,Femininity,"0, 0, 250","0, 0, 0"
+Middle East,Child,E-Commerce,"0, 0, 51","255, 255, 255"
+Middle East,Teen,E-Commerce,"0, 0, 0","255, 255, 255"
+Middle East,Adult,E-Commerce,"0, 0, 21","0, 0, 0"
+Middle East,Elder,E-Commerce,"0, 0, 79","0, 0, 0"
+Middle East,Child,Neutral,"20, 255, 255","255, 255, 255"
+Middle East,Teen,Neutral,"18, 255, 255","255, 255, 255"
+Middle East,Adult,Neutral,"15, 255, 200","0, 0, 0"
+Middle East,Elder,Neutral,"15, 100, 255","0, 0, 0"
+Western (Europe + North America),Child,Finance,"20, 255, 255","255, 255, 255"
+Western (Europe + North America),Teen,Finance,"18, 255, 255","255, 255, 255"
+Western (Europe + North America),Adult,Finance,"15, 255, 200","0, 0, 0"
+Western (Europe + North America),Elder,Finance,"15, 100, 255","0, 0, 0"
+Western (Europe + North America),Child,Tech,"30, 255, 255","255, 255, 255"
+Western (Europe + North America),Teen,Tech,"25, 255, 255","255, 255, 255"
+Western (Europe + North America),Adult,Tech,"22, 255, 255","0, 0, 0"
+Western (Europe + North America),Elder,Tech,"25, 80, 255","0, 0, 0"
+Western (Europe + North America),Child,Entertainment,"0, 0, 211","255, 255, 255"
+Western (Europe + North America),Teen,Entertainment,"0, 0, 128","255, 255, 255"
+Western (Europe + North America),Adult,Entertainment,"0, 0, 169","0, 0, 0"
+Western (Europe + North America),Elder,Entertainment,"0, 0, 220","0, 0, 0"
+Western (Europe + North America),Child,Sports,"30, 255, 255","255, 255, 255"
+Western (Europe + North America),Teen,Sports,"25, 255, 255","255, 255, 255"
+Western (Europe + North America),Adult,Sports,"22, 255, 255","0, 0, 0"
+Western (Europe + North America),Elder,Sports,"25, 80, 255","0, 0, 0"
+Western (Europe + North America),Child,Travel,"420, 255, 255","255, 255, 255"
+Western (Europe + North America),Teen,Travel,"420, 170, 255","255, 255, 255"
+Western (Europe + North America),Adult,Travel,"420, 220, 200","0, 0, 0"
+Western (Europe + North America),Elder,Travel,"420, 100, 255","0, 0, 0"
+Western (Europe + North America),Child,Masculinity,"0, 0, 255","255, 255, 255"
+Western (Europe + North America),Teen,Masculinity,"0, 0, 240","255, 255, 255"
+Western (Europe + North America),Adult,Masculinity,"0, 0, 220","0, 0, 0"
+Western (Europe + North America),Elder,Masculinity,"0, 0, 250","0, 0, 0"
+Western (Europe + North America),Child,Femininity,"240, 255, 255","255, 255, 255"
+Western (Europe + North America),Teen,Femininity,"245, 255, 255","255, 255, 255"
+Western (Europe + North America),Adult,Femininity,"245, 255, 200","0, 0, 0"
+Western (Europe + North America),Elder,Femininity,"230, 155, 255","0, 0, 0"
+Western (Europe + North America),Child,E-Commerce,"0, 0, 51","255, 255, 255"
+Western (Europe + North America),Teen,E-Commerce,"0, 0, 0","255, 255, 255"
+Western (Europe + North America),Adult,E-Commerce,"0, 0, 21","0, 0, 0"
+Western (Europe + North America),Elder,E-Commerce,"0, 0, 79","0, 0, 0"
+Western (Europe + North America),Child,Neutral,"0, 0, 51","255, 255, 255"
+Western (Europe + North America),Teen,Neutral,"0, 0, 0","255, 255, 255"
+Western (Europe + North America),Adult,Neutral,"0, 0, 21","0, 0, 0"
+Western (Europe + North America),Elder,Neutral,"0, 0, 79","0, 0, 0"
+Oceania,Child,Finance,"0, 200, 255","255, 255, 255"
+Oceania,Teen,Finance,"0, 255, 200","255, 255, 255"
+Oceania,Adult,Finance,"0, 255, 128","0, 0, 0"
+Oceania,Elder,Finance,"0, 150, 255","0, 0, 0"
+Oceania,Child,Tech,"20, 255, 255","255, 255, 255"
+Oceania,Teen,Tech,"18, 255, 255","255, 255, 255"
+Oceania,Adult,Tech,"15, 255, 200","0, 0, 0"
+Oceania,Elder,Tech,"15, 100, 255","0, 0, 0"
+Oceania,Child,Entertainment,"420, 255, 255","255, 255, 255"
+Oceania,Teen,Entertainment,"420, 170, 255","255, 255, 255"
+Oceania,Adult,Entertainment,"420, 220, 200","0, 0, 0"
+Oceania,Elder,Entertainment,"420, 100, 255","0, 0, 0"
+Oceania,Child,Sports,"20, 255, 255","255, 255, 255"
+Oceania,Teen,Sports,"18, 255, 255","255, 255, 255"
+Oceania,Adult,Sports,"15, 255, 200","0, 0, 0"
+Oceania,Elder,Sports,"15, 100, 255","0, 0, 0"
+Oceania,Child,Travel,"395, 255, 255","255, 255, 255"
+Oceania,Teen,Travel,"390, 255, 255","255, 255, 255"
+Oceania,Adult,Travel,"390, 155, 255","0, 0, 0"
+Oceania,Elder,Travel,"390, 50, 255","0, 0, 0"
+Oceania,Child,Masculinity,"375, 255, 255","255, 255, 255"
+Oceania,Teen,Masculinity,"370, 255, 255","255, 255, 255"
+Oceania,Adult,Masculinity,"370, 255, 200","0, 0, 0"
+Oceania,Elder,Masculinity,"350, 255, 255","0, 0, 0"
+Oceania,Child,Femininity,"0, 0, 51","255, 255, 255"
+Oceania,Teen,Femininity,"0, 0, 0","255, 255, 255"
+Oceania,Adult,Femininity,"0, 0, 21","0, 0, 0"
+Oceania,Elder,Femininity,"0, 0, 79","0, 0, 0"
+Oceania,Child,E-Commerce,"0, 0, 255","255, 255, 255"
+Oceania,Teen,E-Commerce,"0, 0, 240","255, 255, 255"
+Oceania,Adult,E-Commerce,"0, 0, 220","0, 0, 0"
+Oceania,Elder,E-Commerce,"0, 0, 250","0, 0, 0"
+Oceania,Child,Neutral,"30, 255, 255","255, 255, 255"
+Oceania,Teen,Neutral,"25, 255, 255","255, 255, 255"
+Oceania,Adult,Neutral,"22, 255, 255","0, 0, 0"
+Oceania,Elder,Neutral,"25, 80, 255","0, 0, 0"
+South America,Child,Finance,"0, 0, 211","255, 255, 255"
+South America,Teen,Finance,"0, 0, 128","255, 255, 255"
+South America,Adult,Finance,"0, 0, 169","0, 0, 0"
+South America,Elder,Finance,"0, 0, 220","0, 0, 0"
+South America,Child,Tech,"420, 255, 255","255, 255, 255"
+South America,Teen,Tech,"420, 170, 255","255, 255, 255"
+South America,Adult,Tech,"420, 220, 200","0, 0, 0"
+South America,Elder,Tech,"420, 100, 255","0, 0, 0"
+South America,Child,Entertainment,"0, 0, 255","255, 255, 255"
+South America,Teen,Entertainment,"0, 0, 240","255, 255, 255"
+South America,Adult,Entertainment,"0, 0, 220","0, 0, 0"
+South America,Elder,Entertainment,"0, 0, 250","0, 0, 0"
+South America,Child,Sports,"240, 255, 255","255, 255, 255"
+South America,Teen,Sports,"245, 255, 255","255, 255, 255"
+South America,Adult,Sports,"245, 255, 200","0, 0, 0"
+South America,Elder,Sports,"230, 155, 255","0, 0, 0"
+South America,Child,Travel,"0, 200, 255","255, 255, 255"
+South America,Teen,Travel,"0, 255, 200","255, 255, 255"
+South America,Adult,Travel,"0, 255, 128","0, 0, 0"
+South America,Elder,Travel,"0, 150, 255","0, 0, 0"
+South America,Child,Masculinity,"30, 255, 255","255, 255, 255"
+South America,Teen,Masculinity,"25, 255, 255","255, 255, 255"
+South America,Adult,Masculinity,"22, 255, 255","0, 0, 0"
+South America,Elder,Masculinity,"25, 80, 255","0, 0, 0"
+South America,Child,Femininity,"30, 255, 255","255, 255, 255"
+South America,Teen,Femininity,"25, 255, 255","255, 255, 255"
+South America,Adult,Femininity,"22, 255, 255","0, 0, 0"
+South America,Elder,Femininity,"25, 80, 255","0, 0, 0"
+South America,Child,E-Commerce,"420, 255, 255","255, 255, 255"
+South America,Teen,E-Commerce,"420, 170, 255","255, 255, 255"
+South America,Adult,E-Commerce,"420, 220, 200","0, 0, 0"
+South America,Elder,E-Commerce,"420, 100, 255","0, 0, 0"
+South America,Child,Neutral,"395, 255, 255","255, 255, 255"
+South America,Teen,Neutral,"390, 255, 255","255, 255, 255"
+South America,Adult,Neutral,"390, 155, 255","0, 0, 0"
+South America,Elder,Neutral,"390, 50, 255","0, 0, 0"
+Africa,Child,Finance,"20, 255, 255","255, 255, 255"
+Africa,Teen,Finance,"18, 255, 255","255, 255, 255"
+Africa,Adult,Finance,"15, 255, 200","0, 0, 0"
+Africa,Elder,Finance,"15, 100, 255","0, 0, 0"
+Africa,Child,Tech,"0, 0, 51","255, 255, 255"
+Africa,Teen,Tech,"0, 0, 0","255, 255, 255"
+Africa,Adult,Tech,"0, 0, 21","0, 0, 0"
+Africa,Elder,Tech,"0, 0, 79","0, 0, 0"
+Africa,Child,Entertainment,"395, 255, 255","255, 255, 255"
+Africa,Teen,Entertainment,"390, 255, 255","255, 255, 255"
+Africa,Adult,Entertainment,"390, 155, 255","0, 0, 0"
+Africa,Elder,Entertainment,"390, 50, 255","0, 0, 0"
+Africa,Child,Sports,"30, 255, 255","255, 255, 255"
+Africa,Teen,Sports,"25, 255, 255","255, 255, 255"
+Africa,Adult,Sports,"22, 255, 255","0, 0, 0"
+Africa,Elder,Sports,"25, 80, 255","0, 0, 0"
+Africa,Child,Travel,"30, 255, 255","255, 255, 255"
+Africa,Teen,Travel,"25, 255, 255","255, 255, 255"
+Africa,Adult,Travel,"22, 255, 255","0, 0, 0"
+Africa,Elder,Travel,"25, 80, 255","0, 0, 0"
+Africa,Child,Masculinity,"240, 255, 255","255, 255, 255"
+Africa,Teen,Masculinity,"245, 255, 255","255, 255, 255"
+Africa,Adult,Masculinity,"245, 255, 200","0, 0, 0"
+Africa,Elder,Masculinity,"230, 155, 255","0, 0, 0"
+Africa,Child,Femininity,"240, 255, 255","255, 255, 255"
+Africa,Teen,Femininity,"245, 255, 255","255, 255, 255"
+Africa,Adult,Femininity,"245, 255, 200","0, 0, 0"
+Africa,Elder,Femininity,"230, 155, 255","0, 0, 0"
+Africa,Child,E-Commerce,"0, 0, 51","255, 255, 255"
+Africa,Teen,E-Commerce,"0, 0, 0","255, 255, 255"
+Africa,Adult,E-Commerce,"0, 0, 21","0, 0, 0"
+Africa,Elder,E-Commerce,"0, 0, 79","0, 0, 0"
+Africa,Child,Neutral,"375, 255, 255","255, 255, 255"
+Africa,Teen,Neutral,"370, 255, 255","255, 255, 255"
+Africa,Adult,Neutral,"370, 255, 200","0, 0, 0"
+Africa,Elder,Neutral,"350, 255, 255","0, 0, 0"
+Africa,All,E-Commerce,"0, 0, 0","255, 255, 255"
+Africa,All,Entertainment,"390, 255, 255","255, 255, 255"
+Africa,All,Femininity,"245, 255, 255","255, 255, 255"
+Africa,All,Finance,"18, 255, 255","255, 255, 255"
+Africa,All,Masculinity,"245, 255, 255","255, 255, 255"
+Africa,All,Neutral,"370, 255, 255","255, 255, 255"
+Africa,All,Sports,"25, 255, 255","255, 255, 255"
+Africa,All,Tech,"0, 0, 0","255, 255, 255"
+Africa,All,Travel,"25, 255, 255","255, 255, 255"
+East Asia,All,E-Commerce,"18, 255, 255","255, 255, 255"
+East Asia,All,Entertainment,"0, 0, 240","255, 255, 255"
+East Asia,All,Femininity,"370, 255, 255","255, 255, 255"
+East Asia,All,Finance,"0, 255, 200","255, 255, 255"
+East Asia,All,Masculinity,"25, 255, 255","255, 255, 255"
+East Asia,All,Neutral,"390, 255, 255","255, 255, 255"
+East Asia,All,Sports,"420, 170, 255","255, 255, 255"
+East Asia,All,Tech,"18, 255, 255","255, 255, 255"
+East Asia,All,Travel,"0, 255, 200","255, 255, 255"
+Middle East,All,E-Commerce,"0, 0, 0","255, 255, 255"
+Middle East,All,Entertainment,"25, 255, 255","255, 255, 255"
+Middle East,All,Femininity,"0, 0, 240","255, 255, 255"
+Middle East,All,Finance,"0, 0, 240","255, 255, 255"
+Middle East,All,Masculinity,"245, 255, 255","255, 255, 255"
+Middle East,All,Neutral,"18, 255, 255","255, 255, 255"
+Middle East,All,Sports,"0, 255, 200","255, 255, 255"
+Middle East,All,Tech,"370, 255, 255","255, 255, 255"
+Middle East,All,Travel,"0, 0, 0","255, 255, 255"
+Oceania,All,E-Commerce,"0, 0, 240","255, 255, 255"
+Oceania,All,Entertainment,"420, 170, 255","255, 255, 255"
+Oceania,All,Femininity,"0, 0, 0","255, 255, 255"
+Oceania,All,Finance,"0, 255, 200","255, 255, 255"
+Oceania,All,Masculinity,"370, 255, 255","255, 255, 255"
+Oceania,All,Neutral,"25, 255, 255","255, 255, 255"
+Oceania,All,Sports,"18, 255, 255","255, 255, 255"
+Oceania,All,Tech,"18, 255, 255","255, 255, 255"
+Oceania,All,Travel,"390, 255, 255","255, 255, 255"
+South America,All,E-Commerce,"420, 170, 255","255, 255, 255"
+South America,All,Entertainment,"0, 0, 240","255, 255, 255"
+South America,All,Femininity,"25, 255, 255","255, 255, 255"
+South America,All,Finance,"0, 0, 128","255, 255, 255"
+South America,All,Masculinity,"25, 255, 255","255, 255, 255"
+South America,All,Neutral,"390, 255, 255","255, 255, 255"
+South America,All,Sports,"245, 255, 255","255, 255, 255"
+South America,All,Tech,"420, 170, 255","255, 255, 255"
+South America,All,Travel,"0, 255, 200","255, 255, 255"
+South Asia,All,E-Commerce,"370, 255, 255","255, 255, 255"
+South Asia,All,Entertainment,"18, 255, 255","255, 255, 255"
+South Asia,All,Femininity,"0, 0, 128","255, 255, 255"
+South Asia,All,Finance,"390, 255, 255","255, 255, 255"
+South Asia,All,Masculinity,"370, 255, 255","255, 255, 255"
+South Asia,All,Neutral,"0, 0, 0","255, 255, 255"
+South Asia,All,Sports,"18, 255, 255","255, 255, 255"
+South Asia,All,Tech,"370, 255, 255","255, 255, 255"
+South Asia,All,Travel,"0, 0, 240","255, 255, 255"
+Southeast Asia,All,E-Commerce,"0, 255, 200","255, 255, 255"
+Southeast Asia,All,Entertainment,"0, 0, 128","255, 255, 255"
+Southeast Asia,All,Femininity,"245, 255, 255","255, 255, 255"
+Southeast Asia,All,Finance,"245, 255, 255","255, 255, 255"
+Southeast Asia,All,Masculinity,"0, 0, 240","255, 255, 255"
+Southeast Asia,All,Neutral,"0, 0, 0","255, 255, 255"
+Southeast Asia,All,Sports,"25, 255, 255","255, 255, 255"
+Southeast Asia,All,Tech,"0, 255, 200","255, 255, 255"
+Southeast Asia,All,Travel,"420, 170, 255","255, 255, 255"
+Western (Europe + North America),All,E-Commerce,"0, 0, 0","255, 255, 255"
+Western (Europe + North America),All,Entertainment,"0, 0, 128","255, 255, 255"
+Western (Europe + North America),All,Femininity,"245, 255, 255","255, 255, 255"
+Western (Europe + North America),All,Finance,"18, 255, 255","255, 255, 255"
+Western (Europe + North America),All,Masculinity,"0, 0, 240","255, 255, 255"
+Western (Europe + North America),All,Neutral,"0, 0, 0","255, 255, 255"
+Western (Europe + North America),All,Sports,"25, 255, 255","255, 255, 255"
+Western (Europe + North America),All,Tech,"25, 255, 255","255, 255, 255"
+Western (Europe + North America),All,Travel,"420, 170, 255","255, 255, 255"
+All,Adult,E-Commerce,"0, 0, 21","0, 0, 0"
+All,Child,E-Commerce,"0, 0, 51","255, 255, 255"
+All,Elder,E-Commerce,"0, 0, 79","0, 0, 0"
+All,Teen,E-Commerce,"0, 0, 0","255, 255, 255"
+All,Adult,Entertainment,"0, 0, 169","0, 0, 0"
+All,Child,Entertainment,"0, 0, 211","255, 255, 255"
+All,Elder,Entertainment,"0, 0, 220","0, 0, 0"
+All,Teen,Entertainment,"0, 0, 128","255, 255, 255"
+All,Adult,Femininity,"0, 0, 21","0, 0, 0"
+All,Child,Femininity,"0, 0, 51","255, 255, 255"
+All,Elder,Femininity,"0, 0, 79","0, 0, 0"
+All,Teen,Femininity,"0, 0, 0","255, 255, 255"
+All,Adult,Finance,"245, 255, 200","0, 0, 0"
+All,Child,Finance,"240, 255, 255","255, 255, 255"
+All,Elder,Finance,"230, 155, 255","0, 0, 0"
+All,Teen,Finance,"245, 255, 255","255, 255, 255"
+All,Adult,Masculinity,"370, 255, 200","0, 0, 0"
+All,Child,Masculinity,"375, 255, 255","255, 255, 255"
+All,Elder,Masculinity,"350, 255, 255","0, 0, 0"
+All,Teen,Masculinity,"370, 255, 255","255, 255, 255"
+All,Adult,Neutral,"0, 0, 21","0, 0, 0"
+All,Child,Neutral,"0, 0, 51","255, 255, 255"
+All,Elder,Neutral,"0, 0, 79","0, 0, 0"
+All,Teen,Neutral,"0, 0, 0","255, 255, 255"
+All,Adult,Sports,"245, 255, 200","0, 0, 0"
+All,Child,Sports,"240, 255, 255","255, 255, 255"
+All,Elder,Sports,"230, 155, 255","0, 0, 0"
+All,Teen,Sports,"245, 255, 255","255, 255, 255"
+All,Adult,Tech,"0, 0, 21","0, 0, 0"
+All,Child,Tech,"0, 0, 51","255, 255, 255"
+All,Elder,Tech,"0, 0, 79","0, 0, 0"
+All,Teen,Tech,"0, 0, 0","255, 255, 255"
+All,Adult,Travel,"0, 0, 21","0, 0, 0"
+All,Child,Travel,"0, 0, 51","255, 255, 255"
+All,Elder,Travel,"0, 0, 79","0, 0, 0"
+All,Teen,Travel,"0, 0, 0","255, 255, 255"
+All,All,E-Commerce,"0, 0, 0","255, 255, 255"
+All,All,Entertainment,"0, 0, 128","255, 255, 255"
+All,All,Femininity,"0, 0, 0","255, 255, 255"
+All,All,Finance,"245, 255, 255","255, 255, 255"
+All,All,Masculinity,"370, 255, 255","255, 255, 255"
+All,All,Neutral,"0, 0, 0","255, 255, 255"
+All,All,Sports,"245, 255, 255","255, 255, 255"
+All,All,Tech,"0, 0, 0","255, 255, 255"
+All,All,Travel,"0, 0, 0","255, 255, 255"
+East Asia,Child,Health,"70, 150, 255","255, 255, 255"
+East Asia,Child,Food,"23, 164, 255","255, 255, 255"
+East Asia,Teen,Health,"50, 150, 255","255, 255, 255"
+East Asia,Teen,Food,"21, 175, 255","255, 255, 255"
+East Asia,Adult,Health,"19, 155, 180","0, 0, 0"
+East Asia,Adult,Food,"19, 120, 180","0, 0, 0"
+East Asia,Elder,Health,"108, 140, 200","0, 0, 0"
+East Asia,Elder,Food,"15, 220, 200","0, 0, 0"
+Southeast Asia,Child,Health,"70, 150, 255","255, 255, 255"
+Southeast Asia,Child,Food,"23, 164, 255","255, 255, 255"
+Southeast Asia,Teen,Health,"50, 150, 255","255, 255, 255"
+Southeast Asia,Teen,Food,"21, 175, 255","255, 255, 255"
+Southeast Asia,Adult,Health,"19, 155, 180","0, 0, 0"
+Southeast Asia,Adult,Food,"19, 120, 180","0, 0, 0"
+Southeast Asia,Elder,Health,"108, 140, 200","0, 0, 0"
+Southeast Asia,Elder,Food,"15, 220, 200","0, 0, 0"
+South Asia,Child,Health,"70, 150, 255","255, 255, 255"
+South Asia,Child,Food,"23, 164, 255","255, 255, 255"
+South Asia,Teen,Health,"50, 150, 255","255, 255, 255"
+South Asia,Teen,Food,"21, 175, 255","255, 255, 255"
+South Asia,Adult,Health,"19, 155, 180","0, 0, 0"
+South Asia,Adult,Food,"19, 120, 180","0, 0, 0"
+South Asia,Elder,Health,"108, 140, 200","0, 0, 0"
+South Asia,Elder,Food,"15, 220, 200","0, 0, 0"
+Middle East,Child,Health,"70, 150, 255","255, 255, 255"
+Middle East,Child,Food,"23, 164, 255","255, 255, 255"
+Middle East,Teen,Health,"50, 150, 255","255, 255, 255"
+Middle East,Teen,Food,"21, 175, 255","255, 255, 255"
+Middle East,Adult,Health,"19, 155, 180","0, 0, 0"
+Middle East,Adult,Food,"19, 120, 180","0, 0, 0"
+Middle East,Elder,Health,"108, 140, 200","0, 0, 0"
+Middle East,Elder,Food,"15, 220, 200","0, 0, 0"
+Western (Europe + North America),Child,Health,"70, 150, 255","255, 255, 255"
+Western (Europe + North America),Child,Food,"23, 164, 255","255, 255, 255"
+Western (Europe + North America),Teen,Health,"50, 150, 255","255, 255, 255"
+Western (Europe + North America),Teen,Food,"21, 175, 255","255, 255, 255"
+Western (Europe + North America),Adult,Health,"19, 155, 180","0, 0, 0"
+Western (Europe + North America),Adult,Food,"19, 120, 180","0, 0, 0"
+Western (Europe + North America),Elder,Health,"108, 140, 200","0, 0, 0"
+Western (Europe + North America),Elder,Food,"15, 220, 200","0, 0, 0"
+Oceania,Child,Health,"70, 150, 255","255, 255, 255"
+Oceania,Child,Food,"23, 164, 255","255, 255, 255"
+Oceania,Teen,Health,"50, 150, 255","255, 255, 255"
+Oceania,Teen,Food,"21, 175, 255","255, 255, 255"
+Oceania,Adult,Health,"19, 155, 180","0, 0, 0"
+Oceania,Adult,Food,"19, 120, 180","0, 0, 0"
+Oceania,Elder,Health,"108, 140, 200","0, 0, 0"
+Oceania,Elder,Food,"15, 220, 200","0, 0, 0"
+South America,Child,Health,"70, 150, 255","255, 255, 255"
+South America,Child,Food,"23, 164, 255","255, 255, 255"
+South America,Teen,Health,"50, 150, 255","255, 255, 255"
+South America,Teen,Food,"21, 175, 255","255, 255, 255"
+South America,Adult,Health,"19, 155, 180","0, 0, 0"
+South America,Adult,Food,"19, 120, 180","0, 0, 0"
+South America,Elder,Health,"108, 140, 200","0, 0, 0"
+South America,Elder,Food,"15, 220, 200","0, 0, 0"
+Africa,Child,Health,"70, 150, 255","255, 255, 255"
+Africa,Child,Food,"23, 164, 255","255, 255, 255"
+Africa,Teen,Health,"50, 150, 255","255, 255, 255"
+Africa,Teen,Food,"21, 175, 255","255, 255, 255"
+Africa,Adult,Health,"19, 155, 180","0, 0, 0"
+Africa,Adult,Food,"19, 120, 180","0, 0, 0"
+Africa,Elder,Health,"108, 140, 200","0, 0, 0"
+Africa,Elder,Food,"15, 220, 200","0, 0, 0"
+All,Adult,Health,"19, 155, 180","0, 0, 0"
+All,Adult,Food,"19, 120, 180","0, 0, 0"
+All,Child,Health,"70, 150, 255","255, 255, 255"
+All,Child,Food,"23, 164, 255","255, 255, 255"
+All,Elder,Health,"108, 140, 200","0, 0, 0"
+All,Elder,Food,"15, 220, 200","0, 0, 0"
+All,Teen,Health,"50, 150, 255","255, 255, 255"
+All,Teen,Food,"21, 175, 255","255, 255, 255"
+Africa,All,Health,"103, 135, 255","255, 255, 255"
+Africa,All,Food,"15, 176, 255","255, 255, 255"
+East Asia,All,Health,"103, 135, 255","255, 255, 255"
+East Asia,All,Food,"15, 176, 255","255, 255, 255"
+Middle East,All,Health,"103, 135, 255","255, 255, 255"
+Middle East,All,Food,"15, 176, 255","255, 255, 255"
+Oceania,All,Health,"103, 135, 255","255, 255, 255"
+Oceania,All,Food,"15, 176, 255","255, 255, 255"
+South America,All,Health,"103, 135, 255","255, 255, 255"
+South America,All,Food,"15, 176, 255","255, 255, 255"
+South Asia,All,Health,"103, 135, 255","255, 255, 255"
+South Asia,All,Food,"15, 176, 255","255, 255, 255"
+Southeast Asia,All,Health,"103, 135, 255","255, 255, 255"
+Southeast Asia,All,Food,"15, 176, 255","255, 255, 255"
+Western (Europe + North America),All,Health,"103, 135, 255","255, 255, 255"
+Western (Europe + North America),All,Food,"15, 176, 255","255, 255, 255"
+All,All,Health,"103, 135, 255","255, 255, 255"
+All,All,Food,"15, 176, 255","255, 255, 255"

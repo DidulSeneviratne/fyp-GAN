@@ -7,7 +7,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="container">
+
+        <div class="menu_card">
+
+            <div class="left-buttons">
+                <div class="tooltip">
+                    <button type="button" id="resetForm"> <img src="image/refresh.png" id="img_reset" alt="Refresh" height="30px" width="30px"> </button>
+                    <span class="tooltiptext">Refresh</span>
+                </div>
+                <div class="tooltip1">
+                    <button type="button" id="rateReviewBtn"> <img src="image/rate.jpg" alt="Rate & Review" height="30px" width="30px"> </button>
+                    <span class="tooltiptext1">Rate & Review</span>
+                </div>
+            </div>
+
+            <div class="tooltip">
+                <button type="button" id="menu"> <img src="image/menu.png" alt="Menu" height="30px" width="30px"> </button>
+                <span class="tooltiptext">Menu</span>
+            </div>
+
+        </div>
+
         <h1 id="title">UI Generator from Sketch</h1>
         
         <form id="uploadForm">
@@ -72,8 +94,9 @@
         
             </div> <br>
             
-            <button type="submit" id="submission">Generate UI's</button>
         </form>
+
+        <button type="submit" id="submission">Generate UI's</button>
 
         <div id="loadingIndicator" style="display:none;"></div>
         
@@ -85,6 +108,56 @@
             <br><br>
             <button id="downloadBtn" style="display:none;">Download UI's </button>
             <!--<a href="../backend/outputs/generated_ui.png" download="my-file.png">Download UI</a>-->
+        </div>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Rate & Review</h2>
+
+            <label for="rating">Rating:</label>
+            <select id="rating" required>
+                <option value="5">⭐⭐⭐⭐⭐ (5 Stars)</option>
+                <option value="4">⭐⭐⭐⭐ (4 Stars)</option>
+                <option value="3">⭐⭐⭐ (3 Stars)</option>
+                <option value="2">⭐⭐ (2 Stars)</option>
+                <option value="1">⭐ (1 Star)</option>
+            </select><br>
+
+            <label for="review">Your Review:</label>
+            <textarea id="review" rows="4" placeholder="Write your review here..." required></textarea><br><br>
+
+            <button id="submitReview">Submit Review</button>
+        </div>
+    </div>
+
+    <!-- Hidden Menu -->
+    <div id="dropdownMenu" class="dropdown-content">
+        <button id="aboutUsBtn">About Us</button>
+        <button id="instructionBtn">Instruction</button>
+    </div>
+
+    <!-- About Us Modal -->
+    <div id="aboutUsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>About Us</h2>
+            <p>We provide AI-powered UI/UX generation from sketches...</p>
+        </div>
+    </div>
+
+    <!-- Instruction Modal -->
+    <div id="instructionModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Instructions</h2>
+            <ul>
+                <li>Upload your sketch.</li>
+                <li>Select target audience and preferences.</li>
+                <li>Click 'Generate UI's' and review your results.</li>
+            </ul>
         </div>
     </div>
 

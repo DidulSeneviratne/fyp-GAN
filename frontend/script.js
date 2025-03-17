@@ -504,3 +504,160 @@ document.getElementById("device").addEventListener("change", function () {
     }
 
 });
+
+/* document.getElementById("resetForm").addEventListener("click", function () {
+    document.getElementById("uploadForm").reset(); // Resets the form fields
+    
+    // Reset additional UI elements
+    document.getElementById("generatedImage").src = "";
+    document.getElementById("generatedImage").style.display = "none";
+    document.getElementById("downloadBtn").style.display = "none";
+    document.getElementById("colorPickerContainer").style.display = "none"; // Hide color picker if shown
+});
+
+let modal = document.getElementById("reviewModal");
+let btn = document.getElementById("rateReviewBtn");
+let span = document.getElementsByClassName("close")[0];
+
+// Open modal when button is clicked
+btn.onclick = function () {
+    modal.style.display = "block";
+};
+
+// Close modal when (×) is clicked
+span.onclick = function () {
+    modal.style.display = "none";
+};
+
+// Close modal when clicking outside of the content box
+window.onclick = function (event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
+
+document.getElementById("submitReview").addEventListener("click", async function () {
+    let rating = document.getElementById("rating").value;
+    let review = document.getElementById("review").value;
+
+    if (review.trim() === "") {
+        alert("Please write a review before submitting.");
+        return;
+    }
+
+    let newReview = `Rating: ${rating}⭐\nReview: ${review}\nDate: ${new Date().toLocaleString()}\n\n`;
+
+    // alert(newReview);
+
+    // Store or send data (This can be stored in localStorage for now)
+    let reviewData = {
+        rating: rating,
+        review: review,
+        date: new Date().toLocaleString(),
+    };
+
+    localStorage.setItem("userReview", reviewData);
+
+    try {
+        // Request access to the `review.txt` file
+        const fileHandle = await window.showOpenFilePicker({
+            types: [{ description: "Text Files", accept: { "text/plain": [".txt"] } }],
+            excludeAcceptAllOption: true,
+            multiple: false
+        });
+
+        const file = await fileHandle[0].getFile();
+        let text = await file.text(); // Read existing content
+        let updatedContent = text + newReview; // Append new review
+
+        // Write the updated content back to the file
+        const writable = await fileHandle[0].createWritable();
+        await writable.write(updatedContent);
+        await writable.close();
+
+        alert("Your review has been saved to review.txt!");
+
+    } catch (error) {
+        console.error("Error accessing file:", error);
+        alert("Failed to save the review. Please allow file access.");
+    }
+
+    // Call function to download the updated text file
+    saveToTextFile(reviewData);
+
+    alert("Thank you for your feedback!");
+    modal.style.display = "none";
+    document.getElementById("review").value = ""; // Clear text area
+});
+
+// Function to save and update the text file
+function saveToTextFile(data) {
+    let blob = new Blob([data], { type: "text/plain" });
+    let link = document.createElement("a");
+
+    link.href = URL.createObjectURL(blob);
+    link.download = "user_reviews.txt"; // File name
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+let menuButton = document.getElementById("menu");
+let dropdownMenu = document.getElementById("dropdownMenu");
+
+let aboutUsModal = document.getElementById("aboutUsModal");
+let instructionModal = document.getElementById("instructionModal");
+
+let aboutUsBtn = document.getElementById("aboutUsBtn");
+let instructionBtn = document.getElementById("instructionBtn");
+
+let closeButtons = document.querySelectorAll(".close");
+
+// Toggle dropdown menu
+menuButton.addEventListener("click", function () {
+    let rect = menuButton.getBoundingClientRect(); // Get button position
+
+    let leftOffset = 20; // Adjust left positioning
+    let topOffset = 20;  // Adjust top positioning
+
+    dropdownMenu.style.left = `${rect.left - leftOffset}px`; // Set menu position
+    dropdownMenu.style.top = `${rect.bottom + window.scrollY - topOffset}px`; // Position below button
+    dropdownMenu.style.display = "block";
+});
+
+// Open About Us Modal
+aboutUsBtn.addEventListener("click", function () {
+    aboutUsModal.style.display = "flex";
+    dropdownMenu.style.display = "none"; // Hide menu
+});
+
+// Open Instruction Modal
+instructionBtn.addEventListener("click", function () {
+    instructionModal.style.display = "flex";
+    dropdownMenu.style.display = "none"; // Hide menu
+});
+
+// Close modals when clicking the close button
+closeButtons.forEach(btn => {
+    btn.addEventListener("click", function () {
+        aboutUsModal.style.display = "none";
+        instructionModal.style.display = "none";
+    });
+});
+
+// Close modals when clicking outside the content
+window.addEventListener("click", function (event) {
+    if (event.target === aboutUsModal) {
+        aboutUsModal.style.display = "none";
+    }
+    if (event.target === instructionModal) {
+        instructionModal.style.display = "none";
+    }
+});
+
+document.addEventListener("click", function (event) {
+    if (!menuButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.style.display = "none";
+    }
+}); */
+

@@ -404,3 +404,93 @@ Western (Europe + North America),All,Neutral,Verdana,10
 Western (Europe + North America),All,Sports,Georgia,10
 Western (Europe + North America),All,Tech,Verdana,10
 Western (Europe + North America),All,Travel,Comic Sans,10
+East Asia,Child,Health,Arial,16
+East Asia,Child,Food,Comic Sans,16
+East Asia,Teen,Health,Verdana,18
+East Asia,Teen,Food,Courier New,18
+East Asia,Adult,Health,Helvetica,20
+East Asia,Adult,Food,Georgia,20
+East Asia,Elder,Health,Times New Roman,22
+East Asia,Elder,Food,Garamond,22
+Southeast Asia,Child,Health,Arial,16
+Southeast Asia,Child,Food,Comic Sans,16
+Southeast Asia,Teen,Health,Verdana,18
+Southeast Asia,Teen,Food,Courier New,18
+Southeast Asia,Adult,Health,Helvetica,20
+Southeast Asia,Adult,Food,Georgia,20
+Southeast Asia,Elder,Health,Times New Roman,22
+Southeast Asia,Elder,Food,Garamond,22
+South Asia,Child,Health,Arial,16
+South Asia,Child,Food,Comic Sans,16
+South Asia,Teen,Health,Verdana,18
+South Asia,Teen,Food,Courier New,18
+South Asia,Adult,Health,Helvetica,20
+South Asia,Adult,Food,Georgia,20
+South Asia,Elder,Health,Times New Roman,22
+South Asia,Elder,Food,Garamond,22
+Middle East,Child,Health,Arial,16
+Middle East,Child,Food,Comic Sans,16
+Middle East,Teen,Health,Verdana,18
+Middle East,Teen,Food,Courier New,18
+Middle East,Adult,Health,Helvetica,20
+Middle East,Adult,Food,Georgia,20
+Middle East,Elder,Health,Times New Roman,22
+Middle East,Elder,Food,Garamond,22
+Western (Europe + North America),Child,Health,Arial,16
+Western (Europe + North America),Child,Food,Comic Sans,16
+Western (Europe + North America),Teen,Health,Verdana,18
+Western (Europe + North America),Teen,Food,Courier New,18
+Western (Europe + North America),Adult,Health,Helvetica,20
+Western (Europe + North America),Adult,Food,Georgia,20
+Western (Europe + North America),Elder,Health,Times New Roman,22
+Western (Europe + North America),Elder,Food,Garamond,22
+Oceania,Child,Health,Arial,16
+Oceania,Child,Food,Comic Sans,16
+Oceania,Teen,Health,Verdana,18
+Oceania,Teen,Food,Courier New,18
+Oceania,Adult,Health,Helvetica,20
+Oceania,Adult,Food,Georgia,20
+Oceania,Elder,Health,Times New Roman,22
+Oceania,Elder,Food,Garamond,22
+South America,Child,Health,Arial,16
+South America,Child,Food,Comic Sans,16
+South America,Teen,Health,Verdana,18
+South America,Teen,Food,Courier New,18
+South America,Adult,Health,Helvetica,20
+South America,Adult,Food,Georgia,20
+South America,Elder,Health,Times New Roman,22
+South America,Elder,Food,Garamond,22
+Africa,Child,Health,Arial,16
+Africa,Child,Food,Comic Sans,16
+Africa,Teen,Health,Verdana,18
+Africa,Teen,Food,Courier New,18
+Africa,Adult,Health,Helvetica,20
+Africa,Adult,Food,Georgia,20
+Africa,Elder,Health,Times New Roman,22
+Africa,Elder,Food,Garamond,22
+All,All,Health,Sans-serif,18
+All,All,Food,Serif,18
+All,Adult,Health,Helvetica,20
+All,Adult,Food,Georgia,20
+All,Child,Health,Arial,16
+All,Child,Food,Comic Sans,16
+All,Elder,Health,Times New Roman,22
+All,Elder,Food,Garamond,22
+All,Teen,Health,Verdana,18
+All,Teen,Food,Courier New,18
+Africa,All,Health,Sans-serif,18
+Africa,All,Food,Serif,18
+East Asia,All,Health,Sans-serif,18
+East Asia,All,Food,Serif,18
+Middle East,All,Health,Sans-serif,18
+Middle East,All,Food,Serif,18
+Oceania,All,Health,Sans-serif,18
+Oceania,All,Food,Serif,18
+South America,All,Health,Sans-serif,18
+South America,All,Food,Serif,18
+South Asia,All,Health,Sans-serif,18
+South Asia,All,Food,Serif,18
+Southeast Asia,All,Health,Sans-serif,18
+Southeast Asia,All,Food,Serif,18
+Western (Europe + North America),All,Health,Sans-serif,18
+Western (Europe + North America),All,Food,Serif,18
