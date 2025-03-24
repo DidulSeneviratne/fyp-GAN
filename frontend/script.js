@@ -36,6 +36,8 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
     const formData = new FormData();
     const imageContainer = document.getElementById("imageContainer");
     const downloadBtn = document.getElementById("downloadBtn");
+    const orientationRadios = document.querySelectorAll('input[name="orientation"]');
+    const selectedOrientation = Array.from(orientationRadios).find(r => r.checked);
 
     imageContainer.innerHTML = ""; // Clear previous images
     downloadBtn.style.display = "none"; // Hide download button initially
@@ -49,6 +51,11 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
     formData.append("device", device);
     formData.append("product", product);
     formData.append("useCustomColor", useCustomColor);
+    if (selectedOrientation) {
+        formData.append("orientation", selectedOrientation.value);
+    } else {
+        formData.append("orientation", "None"); // Send "None" for Desktop or unset
+    }
     
     const selectedColors1 = getSelectedColors(); // Get colors in RGB format
     formData.append("colors1", JSON.stringify(selectedColors1)); // Send as JSON array
@@ -167,7 +174,7 @@ function fallbackLoadFromOutputs1() {
     let loadedImages = []; 
 
     for (let i = 0; i < 5; i++) {
-        const generatedImagePath = `http://localhost:8001/output/generated_ui${i}.png`;
+        const generatedImagePath = `http://localhost:8002/output/generated_ui${i}.png`;
         const tempImage = new Image();
 
         tempImage.src = generatedImagePath;
@@ -176,6 +183,8 @@ function fallbackLoadFromOutputs1() {
             const imageWidth = tempImage.naturalWidth;
             const imageHeight = tempImage.naturalHeight;
             const device = document.getElementById("device").value;
+            const orientationRadios = document.querySelectorAll('input[name="orientation"]');
+            const selectedOrientation = Array.from(orientationRadios).find(r => r.checked);
 
             // Create a new image element for each successful load
             const imgElement = document.createElement("img");
@@ -189,6 +198,10 @@ function fallbackLoadFromOutputs1() {
                 // Update the <img> element with the correct source and dimensions
                 imgElement.style.width = `${imageWidth / 4}px`;
                 imgElement.style.height = `${imageHeight / 4}px`;
+            } else if (device == 'Mobile' && selectedOrientation.value == 'Landscape'){
+                // Update the <img> element with the correct source and dimensions
+                imgElement.style.width = `${imageWidth / 4}px`;
+                imgElement.style.height = `${imageHeight / 4}px`;
             } else {
                 // Update the <img> element with the correct source and dimensions
                 imgElement.style.width = `${imageWidth / 2}px`;
@@ -196,6 +209,8 @@ function fallbackLoadFromOutputs1() {
             }
 
             imgElement.style.margin = "10px"; // Add some spacing between images
+
+            imageContainer.style.display = "inline-block";
 
             imageContainer.appendChild(imgElement);
 
@@ -291,6 +306,8 @@ function fallbackLoadFromOutputs() {
         const imageWidth = tempImage.naturalWidth;
         const imageHeight = tempImage.naturalHeight;
         const device = document.getElementById("device").value;
+        const orientationRadios = document.querySelectorAll('input[name="orientation"]');
+        const selectedOrientation = Array.from(orientationRadios).find(r => r.checked);
 
         if (device == 'Desktop'){
             // Update the <img> element with the correct source and dimensions
@@ -298,6 +315,11 @@ function fallbackLoadFromOutputs() {
             generatedImage.style.width = `${imageWidth/8}px`;
             generatedImage.style.height = `${imageHeight/8}px`;
         } else if (device == 'Tablet') {
+            // Update the <img> element with the correct source and dimensions
+            generatedImage.src = generatedImagePath;
+            generatedImage.style.width = `${imageWidth/4}px`;
+            generatedImage.style.height = `${imageHeight/4}px`;
+        } else if (device == 'Mobile' && selectedOrientation.value == 'Landscape'){
             // Update the <img> element with the correct source and dimensions
             generatedImage.src = generatedImagePath;
             generatedImage.style.width = `${imageWidth/4}px`;
@@ -402,11 +424,11 @@ document.getElementById("downloadBtn").onclick = async function () {
 
     // Define the image paths in the outputs folder
     const imagePaths = [
-        'http://localhost:8001/output/generated_ui0.png',
-        'http://localhost:8001/output/generated_ui1.png',
-        'http://localhost:8001/output/generated_ui2.png',
-        'http://localhost:8001/output/generated_ui3.png',
-        'http://localhost:8001/output/generated_ui4.png'
+        'http://localhost:8002/output/generated_ui0.png',
+        'http://localhost:8002/output/generated_ui1.png',
+        'http://localhost:8002/output/generated_ui2.png',
+        'http://localhost:8002/output/generated_ui3.png',
+        'http://localhost:8002/output/generated_ui4.png'
     ];
 
     let imagesAdded = 0;
@@ -505,14 +527,15 @@ document.getElementById("device").addEventListener("change", function () {
 
 });
 
-/* document.getElementById("resetForm").addEventListener("click", function () {
+document.getElementById("resetForm").addEventListener("click", function () {
     document.getElementById("uploadForm").reset(); // Resets the form fields
     
     // Reset additional UI elements
-    document.getElementById("generatedImage").src = "";
-    document.getElementById("generatedImage").style.display = "none";
+    document.getElementById("generatedImage").style.display = "inline-block";
+    document.getElementById("imageContainer").style.display = "none";
     document.getElementById("downloadBtn").style.display = "none";
     document.getElementById("colorPickerContainer").style.display = "none"; // Hide color picker if shown
+    document.getElementById("orientationOptions").style.display = "block"; // Hide color picker if shown
 });
 
 let modal = document.getElementById("reviewModal");
@@ -536,7 +559,7 @@ window.onclick = function (event) {
     }
 };
 
-document.getElementById("submitReview").addEventListener("click", async function () {
+/*document.getElementById("submitReview").addEventListener("click", async function () {
     let rating = document.getElementById("rating").value;
     let review = document.getElementById("review").value;
 
@@ -588,6 +611,33 @@ document.getElementById("submitReview").addEventListener("click", async function
     alert("Thank you for your feedback!");
     modal.style.display = "none";
     document.getElementById("review").value = ""; // Clear text area
+});*/
+
+document.getElementById("submitReview").addEventListener("click", () => {
+    const rating = document.getElementById("rating").value;
+    const review = document.getElementById("review").value;
+
+    if (!review.trim()) {
+        alert("Please enter a review.");
+        return;
+    }
+
+    fetch("http://localhost:8001/submit-review", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ rating, review }),
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data); // show confirmation
+        document.getElementById("review").value = "";
+        document.getElementById("rating").value = "5";
+    })
+    .catch(error => {
+        console.error("Error submitting review:", error);
+    });
 });
 
 // Function to save and update the text file
@@ -659,5 +709,20 @@ document.addEventListener("click", function (event) {
     if (!menuButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
         dropdownMenu.style.display = "none";
     }
-}); */
+});
 
+document.getElementById("device").addEventListener("change", function () {
+    const device = this.value;
+    const orientationContainer = document.getElementById("orientationOptions");
+
+    if (device === "Mobile") {
+        orientationContainer.style.display = "block";
+        document.getElementById("portrait").checked = true;
+    } else if (device === "Tablet") {
+        orientationContainer.style.display = "block";
+        document.getElementById("landscape").checked = true;
+    } else {
+        orientationContainer.style.display = "none";
+        document.querySelectorAll('input[name="orientation"]').forEach(el => el.checked = false);
+    }
+});

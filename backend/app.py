@@ -15,7 +15,7 @@ import torch
 import numpy as np
 import pandas as pd
 from PIL import Image
-from utils import preprocess_image, load_model, generate_ui_image, change_background, resize_to_input, overlay_text_on_image, find_most_similar_image, rgb_to_hsv, resize_image
+from utils import preprocess_image, load_model, generate_ui_image, change_background, resize_to_input, overlay_text_on_image, find_most_similar_image, rgb_to_hsv, resize_image, resize_imagePL
 
 app = FastAPI()
 
@@ -24,7 +24,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8001"],  # Use ["http://localhost:8002"] for security
+    allow_origins=["http://localhost:8002"],  # Use ["http://localhost:8003"] for security
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -69,6 +69,7 @@ async def generate_ui(
     product: str = Form(...),
     useCustomColor: str = Form(...),
     colors1: str = Form(...),
+    orientation: str = Form(...),
 ):
     
     if len(sketch) > 5:
@@ -177,20 +178,6 @@ async def generate_ui(
         with open(best_match_image, "rb") as f:
             sketch_data = f.read()
 
-        width, height = image.size
-
-        # Check if image is within allowed range
-        valid_range = SIZE_RANGES[device]
-        if not (valid_range["min_w"] <= width <= valid_range["max_w"] and valid_range["min_h"] <= height <= valid_range["max_h"]):
-            image = resize_image(image, MEAN_RESOLUTIONS[device])  # Resize if out of range
-
-            # Convert resized image back to bytes
-            img_io = io.BytesIO()
-            image.save(img_io, format="PNG")  # Save as PNG or JPEG as needed
-            img_io.seek(0)
-
-            sketch_data = img_io.getvalue()  # Store resized image bytes in sketch_data
-
         # image = Image.open(io.BytesIO(sketch_data))
 
         # Preprocess the sketch for the model
@@ -220,6 +207,16 @@ async def generate_ui(
 
         # 3.3 Extract and overlay text
         final_image_path = overlay_text_on_image(image, resized_image_path, font_face, font_size, text_color, output_filename, sketch_data)
+
+        width, height = image.size
+
+        # Check if image is within allowed range
+        valid_range = SIZE_RANGES[device]
+        if not (valid_range["min_w"] <= width <= valid_range["max_w"] and valid_range["min_h"] <= height <= valid_range["max_h"]):
+            image = resize_image(final_image_path, MEAN_RESOLUTIONS[device])  # Resize if out of range
+
+        if (orientation == "Portrait" and device == "Tablet") or (orientation == "Landscape" and device == "Mobile"):
+            final_image_path = resize_imagePL(final_image_path, orientation, device)  # Resize if out of range
 
         generated_images.append(final_image_path)  # Add the final image path to the list
 

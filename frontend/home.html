@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="container">
 
         <div class="menu_card">
@@ -61,10 +60,24 @@
             <label for="device">Target Device:</label>
             <select id="device" name="device" required>
                 <option value="Mobile">Mobile</option>
-                <option value="Desktop">Desktop</option>
                 <option value="Tablet">Tablet</option>
-            </select><br><br>
+                <option value="Desktop">Desktop</option>
+            </select> <br>
             
+            <div id="orientationOptions" style="display: block;">
+                <label>Orientation:</label>
+                <div style="display: flex; gap: 20px; align-items: center; margin-top: 5px;">
+                    <label style="display: flex; align-items: center;">
+                        <input type="radio" id="portrait" name="orientation" value="Portrait" style="margin-left: 1px;">
+                        <span style="margin-left: 5px;">Portrait</span>
+                    </label>
+                    <label style="display: flex; align-items: center;">
+                        <input type="radio" id="landscape" name="orientation" value="Landscape">
+                        <span style="margin-left: 5px;">Landscape</span>
+                    </label>
+                </div>
+            </div> <br>
+
             <label for="product">Software Product Type:</label>
             <select id="product" name="product" required>
                 <option value="Finance">Finance</option>
@@ -94,17 +107,16 @@
         
             </div> <br>
             
+            <button type="submit" id="submission">Generate UI's</button>
         </form>
-
-        <button type="submit" id="submission">Generate UI's</button>
 
         <div id="loadingIndicator" style="display:none;"></div>
         
         <div id="result">
             <h2>Generated UI's Preview:</h2>
+            <img id="generatedImage" src="" alt="Generated UI will appear here">
             <div id="imageContainer"></div>
             <!-- <label> Generated UI's will appear here </label> -->
-            <img id="generatedImage" src="" alt="Generated UI will appear here">
             <br><br>
             <button id="downloadBtn" style="display:none;">Download UI's </button>
             <!--<a href="../backend/outputs/generated_ui.png" download="my-file.png">Download UI</a>-->
@@ -154,8 +166,8 @@
             <span class="close">&times;</span>
             <h2>Instructions</h2>
             <ul>
-                <li>Upload your sketch.</li>
-                <li>Select target audience and preferences.</li>
+                <li>Upload your sketch.</li></br>
+                <li>Select target audience and preferences.</li></br>
                 <li>Click 'Generate UI's' and review your results.</li>
             </ul>
         </div>
