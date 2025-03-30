@@ -1,26 +1,20 @@
-import torch
-from PIL import Image, ImageDraw, ImageFont
-import torchvision.transforms as transforms
-from torchvision.transforms import ToPILImage
-from models import Generator
+import os
+import io
 import cv2
+import faiss
+import torch
 import easyocr
 import numpy as np
-import io
-import torch
 import torchvision.transforms as transforms
+from models import Generator
 from torchvision import models
-from torchvision.models import resnet50, ResNet50_Weights
-from PIL import Image
-import numpy as np
-import os
-import faiss
-from scipy.spatial.distance import euclidean
-from skimage.metrics import structural_similarity as ssim
-import cv2
-from multiprocessing import Pool, cpu_count
-from sklearn.decomposition import PCA
+from PIL import Image, ImageDraw, ImageFont
 from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+from multiprocessing import Pool, cpu_count
+from torchvision.models import resnet50, ResNet50_Weights
+from skimage.metrics import structural_similarity as ssim
+
 
 def resize_image(image_path, target_size):
     with Image.open(image_path) as img:
@@ -176,38 +170,38 @@ def overlay_text_on_image(input_image, generated_image_path, face, size, color, 
         font_size = max(size, int(box_height * 0.7))
         #font_path = "/fonts/roboto.ttf"
         if face == 'Arial':
-            print(f"{face}")
+            # print(f"{face}")
             font_path = "/fonts/arial.ttf"  # Replace with your font path
         elif face == 'Verdana':
-            print(f"{face}")
+            # print(f"{face}")
             font_path = "/fonts/verdana.ttf"  # Replace with your font path
         elif face == 'Georgia':
-            print(f"{face}")
+            # print(f"{face}")
             font_path = "/fonts/georgia.ttf"  # Replace with your font path
         elif face == 'Comic Sans':
-            print(f"{face}")
+            # print(f"{face}")
             font_path = "/fonts/comic.ttf"  # Replace with your font path
         elif face == 'Roboto':
-            print(f"{face}")
-            font_path = "/fonts/roboto.ttf"  # Replace with your font path
+            # print(f"{face}")
+            font_path = "/fonts/arial.ttf"  # Replace with your font path
         elif face == 'Courier New':
-            print(f"{face}")
+            # print(f"{face}")
             font_path = "/fonts/cour.ttf"  # Replace with your font path
         elif face == 'Times New Roman':
-            print(f"{face}")
+            # print(f"{face}")
             font_path = "/fonts/times.ttf"  # Replace with your font path
         elif face == 'Serif':
-            print(f"{face}")
-            font_path = "/fonts/serif.ttf"  # Replace with your font path
+            # print(f"{face}")
+            font_path = "/fonts/times.ttf"  # Replace with your font path
         elif face == 'Sans-serif':
-            print(f"{face}")
-            font_path = "/fonts/sanss.ttf"  # Replace with your font path
+            # print(f"{face}")
+            font_path = "/fonts/verdana.ttf"  # Replace with your font path
         elif face == 'Garamond':
-            print(f"{face}")
-            font_path = "/fonts/garamond.ttf"  # Replace with your font path 
+            # print(f"{face}")
+            font_path = "/fonts/georgia.ttf"  # Replace with your font path 
         elif face == 'Helvetica':
-            print(f"{face}")
-            font_path = "/fonts/helvetica.ttf"  # Replace with your font path
+            # print(f"{face}")
+            font_path = "/fonts/arial.ttf"  # Replace with your font path
 
         try:
             font = ImageFont.truetype(font_path, font_size)
@@ -245,6 +239,28 @@ def overlay_text_on_image(input_image, generated_image_path, face, size, color, 
     # final_image_path = "outputs/final_image.jpg"
     cv2.imwrite(final_image_path, cv2.cvtColor(final_image, cv2.COLOR_RGB2BGR))
     return final_image_path
+
+def extract_features(image_path):
+    """Extract deep learning features from an image using ResNet-50."""
+
+    # Load a pre-trained ResNet-50 model for feature extraction
+    model = resnet50(weights=ResNet50_Weights.IMAGENET1K_V1)
+    # model = models.resnet50(pretrained=True)
+    model = torch.nn.Sequential(*list(model.children())[:-1])  # Remove classification layer
+    model.eval()
+
+    # Image preprocessing transformations
+    transform = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+    ])
+
+    image = Image.open(image_path).convert('RGB')
+    image = transform(image).unsqueeze(0)
+    with torch.no_grad():
+        features = model(image)
+    return features.squeeze().numpy()
 
 
 def calculate_ssim(image_path1, image_path2):
@@ -383,28 +399,24 @@ def enhance_contrast(image):
     return enhanced_image
 
 
+model = models.resnet50(pretrained=True)
+model = torch.nn.Sequential(*list(model.children())[:-1])  # Remove classification layer
+model.eval()
+
+# Image preprocessing transformations
+transform = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+])
+
 def extract_features(image_path):
     """Extract deep learning features from an image using ResNet-50."""
-
-    # Load a pre-trained ResNet-50 model for feature extraction
-    # model = resnet50(weights=ResNet50_Weights.IMAGENET1K_V1)
-    model = models.resnet50(pretrained=True)
-    model = torch.nn.Sequential(*list(model.children())[:-1])  # Remove classification layer
-    model.eval()
-
-    # Image preprocessing transformations
-    transform = transforms.Compose([
-        transforms.Resize((224, 224)),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
-    ])
-
     image = Image.open(image_path).convert('RGB')
     image = transform(image).unsqueeze(0)
     with torch.no_grad():
         features = model(image)
     return features.squeeze().numpy()
-
 
 def calculate_ssim(image_path1, image_path2):
     """Calculate SSIM (Structural Similarity Index) between two images."""
@@ -456,7 +468,7 @@ def find_most_similar_image(low_quality_img_path, dataset_path):
             best_euclidean_score = euclidean_score
             best_ssim_score = ssim_score
 
-    print(f"Most similar image: {best_match}")
+    # print(f"Most similar image: {best_match}")
     print(f"Euclidean Distance: {best_euclidean_score}")
     print(f"SSIM Score: {best_ssim_score}")
 

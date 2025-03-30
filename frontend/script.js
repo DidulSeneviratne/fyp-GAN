@@ -1,3 +1,5 @@
+let hasDeletedImages = false;
+
 document.getElementById("uploadForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -61,29 +63,14 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
     formData.append("colors1", JSON.stringify(selectedColors1)); // Send as JSON array
 
     try {
-        deleteAllImages();
+        hasDeletedImages = false;
+        await deleteAllImages();
         // Show the loading indicator
         loadingIndicator.style.display = "block";
         const response = await fetch("http://localhost:8000/api/generate-ui", {
             method: "POST",
             body: formData
         }) 
-    
-        /* Ensure 'response' exists before checking properties
-        if (!response) {
-            alert("No response received from server")
-            throw new Error("No response received from server");
-        }
-
-        if (!response.ok) {
-            const errorData = await response.json(); // Read error response
-            alert("error")
-            throw new Error(`Error ${response.status}: ${errorData.detail || "Unknown error"}`);
-        }
-
-        const data = await response.json(); // Read JSON response
-        console.log("Success:", data);
-        alert(data) */ 
 
         if (!response.ok) {
             throw new Error(`Error ${response.status}: ${await response.text()}`);
@@ -102,54 +89,18 @@ document.getElementById("uploadForm").addEventListener("submit", async function 
             const generatedImage = document.getElementById("generatedImage");
             generatedImage.style.display = "none";
             loadingIndicator.style.display = "none";
-            fallbackLoadFromOutputs1();
+            fallbackLoadFromOutputs();
         }
-        
-        /* data.generated_images.forEach((imagePath, index) => {
-            const tempImage = new Image();
-            tempImage.src = `http://localhost:8000/${imagePath}`; // Adjust path to backend URL
-
-            tempImage.onload = function () {
-                // Get image dimensions
-                const imageWidth = tempImage.naturalWidth;
-                const imageHeight = tempImage.naturalHeight;
-
-                // Create a new image element
-                const imgElement = document.createElement("img");
-                imgElement.src = tempImage.src;
-                imgElement.style.width = `${imageWidth / 2}px`;
-                imgElement.style.height = `${imageHeight / 2}px`;
-                imgElement.style.margin = "10px";
-
-                imageContainer.appendChild(imgElement); // Append image to the container
-                loadedImages.push(tempImage.src); // Store successful image path
-
-                console.log(`Loaded: ${tempImage.src} (${imageWidth}x${imageHeight})`);
-                
-                // Save to localStorage for persistence
-                localStorage.setItem("loadedImages", JSON.stringify(loadedImages));
-
-                // Show download button after images load
-                const generatedImage = document.getElementById("generatedImage");
-                generatedImage.style.display = "none";
-                loadingIndicator.style.display = "none";
-                downloadBtn.style.display = "inline-block";
-            };
-
-            tempImage.onerror = function () {
-                console.log(`Failed to load image: ${tempImage.src}`);
-            };
-        }); */
         
     } catch (error) {
         console.error("Fetch Error:", error);
         alert(error.message);
-        /* fallbackLoadFromOutputs();
-        fallbackLoadFromOutputs1(); */
     }
 });
 
 async function deleteAllImages() {
+    if (hasDeletedImages) return;
+
     try {
         const response = await fetch("http://localhost:8000/delete-all-images", {
             method: "DELETE"
@@ -162,19 +113,20 @@ async function deleteAllImages() {
         // Remove all images from the UI
         document.getElementById("imageContainer").innerHTML = "";
 
+        hasDeletedImages = true;
     } catch (error) {
         console.error("Error deleting images:", error);
         alert(error);
     }
 }
 
-function fallbackLoadFromOutputs1() {
+function fallbackLoadFromOutputs() {
 
     const imageContainer = document.getElementById("imageContainer");
     let loadedImages = []; 
 
     for (let i = 0; i < 5; i++) {
-        const generatedImagePath = `http://localhost:8002/output/generated_ui${i}.png`;
+        const generatedImagePath = `http://localhost:8003/output/generated_ui${i}.png`;
         const tempImage = new Image();
 
         tempImage.src = generatedImagePath;
@@ -232,129 +184,6 @@ function fallbackLoadFromOutputs1() {
     const downloadBtn = document.getElementById("downloadBtn");
     downloadBtn.style.display = "inline-block";
 
-    /*downloadBtn.onclick = async function () {
-        const zip = new JSZip();  // Create a new zip instance
-        const folder = zip.folder("Generated_UI_Images");  // Create a folder in the zip file
-
-        const imageElements = document.querySelectorAll("#imageContainer img");  // Get all displayed images
-
-        if (imageElements.length === 0) {
-            alert("No images to download.");
-            return;
-        }
-
-        // Loop through each image and fetch its data
-        for (let i = 0; i < imageElements.length; i++) {
-            const img = imageElements[i];
-            const imgURL = img.src;
-            const fileName = `Generated_UI_${i + 1}.png`;
-
-            try {
-                // Fetch the image as a blob
-                console.log(`Fetching image: ${imgURL}`);  // Log the image URL
-                const response = await fetch(imgURL);
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-
-                const blob = await response.blob();
-
-                // Add the blob to the zip folder
-                folder.file(fileName, blob);
-                console.log(`Added ${fileName} to ZIP`);
-            } catch (error) {
-                console.error(`Failed to fetch image ${fileName}:`, error);
-            }
-        }
-
-        // Generate the ZIP file and trigger the download
-        zip.generateAsync({ type: "blob" })
-            .then(function (content) {
-                const link = document.createElement("a");
-                link.href = URL.createObjectURL(content);
-                link.download = "Generated_UI_Images.zip";
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            });
-    };*/
-
-}
-
-function fallbackLoadFromOutputs() {
-    // Assuming the output image is saved with a standard name in the 'outputs' folder
-    // const fallbackUrl = "http://localhost:8000/outputs/generated_ui.png";
-
-    /* Display the fallback image
-    const generatedImage = document.getElementById("generatedImage");
-    generatedImage.src = "../backend/outputs/final_image.jpg";*/
-
-    const generatedImagePath = "../backend/outputs/final_image.jpg"; // Path to the generated image
-
-    // Create a temporary Image object to load and get dimensions
-    const tempImage = new Image();
-
-    // Set the source of the temporary image
-    tempImage.src = generatedImagePath;
-
-    const generatedImage = document.getElementById("generatedImage");
-
-    // Wait for the image to load
-    tempImage.onload = function () {
-        // Retrieve the natural width and height of the image
-        const imageWidth = tempImage.naturalWidth;
-        const imageHeight = tempImage.naturalHeight;
-        const device = document.getElementById("device").value;
-        const orientationRadios = document.querySelectorAll('input[name="orientation"]');
-        const selectedOrientation = Array.from(orientationRadios).find(r => r.checked);
-
-        if (device == 'Desktop'){
-            // Update the <img> element with the correct source and dimensions
-            generatedImage.src = generatedImagePath;
-            generatedImage.style.width = `${imageWidth/8}px`;
-            generatedImage.style.height = `${imageHeight/8}px`;
-        } else if (device == 'Tablet') {
-            // Update the <img> element with the correct source and dimensions
-            generatedImage.src = generatedImagePath;
-            generatedImage.style.width = `${imageWidth/4}px`;
-            generatedImage.style.height = `${imageHeight/4}px`;
-        } else if (device == 'Mobile' && selectedOrientation.value == 'Landscape'){
-            // Update the <img> element with the correct source and dimensions
-            generatedImage.src = generatedImagePath;
-            generatedImage.style.width = `${imageWidth/4}px`;
-            generatedImage.style.height = `${imageHeight/4}px`;
-        } else {
-            // Update the <img> element with the correct source and dimensions
-            generatedImage.src = generatedImagePath;
-            generatedImage.style.width = `${imageWidth/2}px`;
-            generatedImage.style.height = `${imageHeight/2}px`;
-        }
-
-        console.log(`Image dimensions set: ${imageWidth}x${imageHeight}`);
-    };
-
-    // Handle errors
-    tempImage.onerror = function () {
-        alert("Failed to load the generated image.");
-        // loadingIndicator.textContent = "Failed to load image. Please try again.";
-    };
-
-    localStorage.setItem("generatedImageSrc", generatedImage.src);
-
-    // Show the download button
-    const downloadBtn = document.getElementById("downloadBtn");
-    downloadBtn.style.display = "inline-block";
-    downloadBtn.onclick = function () {
-        // Create a temporary download link
-        const link = document.createElement("a");
-        link.href = generatedImage.src; // Use the image source as the download link
-        link.download = "Generated_UI.png"; // Set the download filename
-        document.body.appendChild(link); // Add the link to the document
-        link.click(); // Trigger the download
-        document.body.removeChild(link); // Remove the link after the download
-    };
-
 }
 
 // Add a new state to the browser's history
@@ -375,60 +204,19 @@ document.getElementById('sketch').addEventListener('change', function(event) {
     }
 });
 
-/*document.getElementById("downloadBtn").addEventListener("click", function () {
-    // Get the image element
-    const imageElement = document.getElementById("generatedImage");
-
-    // Ensure the image source (src) is valid
-    if (imageElement.src) {
-        // Create a temporary <a> element
-        const link = document.createElement("a");
-        link.href = imageElement.src; // Set the href to the image source
-        link.download = "Generated_UI.png"; // Set the download filename
-
-        // Trigger the download
-        link.click();
-    } else {
-        alert("No image found to download!");
-    }
-});*/
 
 document.getElementById("downloadBtn").onclick = async function () {
-    /* const files = document.getElementById("sketch").files;
-
-    if (files.length === 0) {
-        alert("Please select some images first.");
-        return;
-    }
-
-    const zip = new JSZip();
-    const folder = zip.folder("Generated_UI_Images");
-
-    // Add each selected file to the zip
-    Array.from(files).forEach((file, index) => {
-        folder.file(file.name, file);  // Add the file to the zip folder
-    });
-
-    // Generate the ZIP and trigger the download
-    const content = await zip.generateAsync({ type: "blob" });
-
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(content);
-    link.download = "Generated_UI_Images.zip";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link); */
 
     const zip = new JSZip();
     const folder = zip.folder("Generated_UI_Images");
 
     // Define the image paths in the outputs folder
     const imagePaths = [
-        'http://localhost:8002/output/generated_ui0.png',
-        'http://localhost:8002/output/generated_ui1.png',
-        'http://localhost:8002/output/generated_ui2.png',
-        'http://localhost:8002/output/generated_ui3.png',
-        'http://localhost:8002/output/generated_ui4.png'
+        'http://localhost:8003/output/generated_ui0.png',
+        'http://localhost:8003/output/generated_ui1.png',
+        'http://localhost:8003/output/generated_ui2.png',
+        'http://localhost:8003/output/generated_ui3.png',
+        'http://localhost:8003/output/generated_ui4.png'
     ];
 
     let imagesAdded = 0;
@@ -559,59 +347,6 @@ window.onclick = function (event) {
     }
 };
 
-/*document.getElementById("submitReview").addEventListener("click", async function () {
-    let rating = document.getElementById("rating").value;
-    let review = document.getElementById("review").value;
-
-    if (review.trim() === "") {
-        alert("Please write a review before submitting.");
-        return;
-    }
-
-    let newReview = `Rating: ${rating}⭐\nReview: ${review}\nDate: ${new Date().toLocaleString()}\n\n`;
-
-    // alert(newReview);
-
-    // Store or send data (This can be stored in localStorage for now)
-    let reviewData = {
-        rating: rating,
-        review: review,
-        date: new Date().toLocaleString(),
-    };
-
-    localStorage.setItem("userReview", reviewData);
-
-    try {
-        // Request access to the `review.txt` file
-        const fileHandle = await window.showOpenFilePicker({
-            types: [{ description: "Text Files", accept: { "text/plain": [".txt"] } }],
-            excludeAcceptAllOption: true,
-            multiple: false
-        });
-
-        const file = await fileHandle[0].getFile();
-        let text = await file.text(); // Read existing content
-        let updatedContent = text + newReview; // Append new review
-
-        // Write the updated content back to the file
-        const writable = await fileHandle[0].createWritable();
-        await writable.write(updatedContent);
-        await writable.close();
-
-        alert("Your review has been saved to review.txt!");
-
-    } catch (error) {
-        console.error("Error accessing file:", error);
-        alert("Failed to save the review. Please allow file access.");
-    }
-
-    // Call function to download the updated text file
-    saveToTextFile(reviewData);
-
-    alert("Thank you for your feedback!");
-    modal.style.display = "none";
-    document.getElementById("review").value = ""; // Clear text area
-});*/
 
 document.getElementById("submitReview").addEventListener("click", () => {
     const rating = document.getElementById("rating").value;

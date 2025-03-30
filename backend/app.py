@@ -1,20 +1,18 @@
-import glob
-from http.client import HTTPException
-import json
-import shutil
-from typing import List
-import uuid
-from fastapi import FastAPI, UploadFile, File, Form
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse, JSONResponse
-from fastapi.middleware.cors import CORSMiddleware
 import os
 import io
-import cv2
+import glob
+import json
+import uuid
 import torch
+import shutil
 import numpy as np
 import pandas as pd
 from PIL import Image
+from typing import List
+from http.client import HTTPException
+from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, UploadFile, File, Form
 from utils import preprocess_image, load_model, generate_ui_image, change_background, resize_to_input, overlay_text_on_image, find_most_similar_image, rgb_to_hsv, resize_image, resize_imagePL
 
 app = FastAPI()
@@ -24,7 +22,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8002"],  # Use ["http://localhost:8003"] for security
+    allow_origins=["http://localhost:8003"],  # Use ["http://localhost:8002"] for security
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -113,24 +111,6 @@ async def generate_ui(
             content={"error": "No matching data found in the CSV files."},
             status_code=404
         )
-    
-    ''' processed_images = []  # Stores resized/valid images as byte arrays
-
-    for file in sketch:
-        image_p = Image.open(file.file)
-        width, height = image_p.size
-
-        # Check if image is within allowed range
-        valid_range = SIZE_RANGES[device]
-        if not (valid_range["min_w"] <= width <= valid_range["max_w"] and valid_range["min_h"] <= height <= valid_range["max_h"]):
-            image_p = resize_image(image_p, MEAN_RESOLUTIONS[device])  # Resize if out of range
-
-        # Convert resized image back to bytes
-        img_io = io.BytesIO()
-        img_io.seek(0)
-
-        # Store the image byte array
-        processed_images.append(img_io.getvalue()) '''
 
     cleaned_list1 = json.loads(colors1)  # Converts to a Python list
 
@@ -166,7 +146,7 @@ async def generate_ui(
         # Now pass the **temporary file path** to the function
         best_match_image = find_most_similar_image(temp_path, dataset_folder)
 
-        print(best_match_image)
+        # print(best_match_image)
 
         # Open the best match image correctly
         try:
