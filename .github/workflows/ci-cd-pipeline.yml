@@ -25,6 +25,7 @@ jobs:
       - name: Install Backend Dependencies
         run: |
           pip install -r requirements.txt
+          pip install httpx
           cd backend
           pip install pytest fastapi uvicorn torch pandas numpy opencv-python 
 
