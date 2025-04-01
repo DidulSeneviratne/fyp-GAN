@@ -8,7 +8,7 @@ def test_root():
     assert response.status_code == 404  # Since there's no root endpoint
 
 def test_generate_ui():
-    with open("../dataset1/1.jpg", "rb") as image_file:
+    with open("dataset1/1.jpg", "rb") as image_file:
         response = client.post("/api/generate-ui", files={
             "sketch": ("sketch.jpg", image_file, "image/jpg"),
         }, data={
